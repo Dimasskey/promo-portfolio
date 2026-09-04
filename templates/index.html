@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title>Змейка удачи 2025</title>
+    <link rel="stylesheet" href="../static/css/mainPageStyle/mainStyle.css">
+    <script src="../static/js/getUser.js"></script>
+    <script src="../static/js/onLoad.js" defer></script>
+    <script src="../static/js/addGift.js"></script>
+    <script>
+        // getCurrentUser();
+        //
+        // window.onload = function () {
+        //     document.getElementById('onload').style.display = 'none';
+        //     updateDOM()
+        // }
+    </script>
+
+</head>
+<body>
+    <div class="onload-wrapper" id="onload">
+        <div class="onload-container" style="">
+            <span class="onload-text">Загрузка...</span>
+            <svg class="onload-spinner" viewBox="0 0 50 50">
+                <circle class="spinner-path" cx="25" cy="25" r="20" fill="none" stroke-width="5"></circle>
+            </svg>
+        </div>
+    </div>
+    <div class="main-page-wrapper">
+        <header class="wrapper__header header">
+            <div class="header-container">
+                <div class="header-inner">
+                    <div class="header-inner__logo logo">
+                        <a href="/"><img class="logo__image" src="../static/images/globalsImages/anixLogo.png" alt="Лого Аникс" /></a>
+                    </div>
+                    <nav class="header-inner__navigation navigation" >
+                        <ul class="navigation-menu">
+                            <li class="navigation-menu__item">
+                                <a href="/conditions">Условия</a>
+                            </li>
+                            <li class="navigation-menu__item">
+                                <a href="/gifts">Подарки</a>
+                            </li>
+                            <li class="navigation-menu__item">
+                                <a href="/winners">Победители</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+        <div class="main-logo">
+            <img class="main-logo__heading" src="../static/images/globalsImages/logoText.png" />
+            <img class="main-logo__image" src="../static/images/mainPageImages/year.png" />
+        </div>
+        <div class="info-block-container">
+            <div class="wrapper-suppliers">
+                <div class="suppliers-container suppliers">
+                    <span class="suppliers__heading">Поставщики</span>
+                    <div class="suppliers-rows-1">
+                        <img class="suppliers__image" src="../static/images/suppliersImages/1_1.png" supplier-id="1" />
+                        <img class="suppliers__image" src="../static/images/suppliersImages/1_2.png" supplier-id="2" />
+                        <img class="suppliers__image" src="../static/images/suppliersImages/1_3.png" supplier-id="3" />
+                        <img class="suppliers__image" src="../static/images/suppliersImages/1_4.png" supplier-id="4" />
+                    </div>
+                    <div class="suppliers-rows-2">
+                        <img class="suppliers__image" src="../static/images/suppliersImages/2_1.png" supplier-id="5" />
+                        <img class="suppliers__image" src="../static/images/suppliersImages/2_2.png" supplier-id="6" />
+                        <img class="suppliers__image" src="../static/images/suppliersImages/2_3.png" supplier-id="7" />
+                        <img class="suppliers__image" src="../static/images/suppliersImages/2_4.png" supplier-id="8" />
+                        <img class="suppliers__image" src="../static/images/suppliersImages/2_5.png" supplier-id="9" />
+                    </div>
+                    <div class="suppliers-rows-3">
+                        <img class="suppliers__image" src="../static/images/suppliersImages/3_1.png" supplier-id="10" />
+                        <img class="suppliers__image" src="../static/images/suppliersImages/3_2.png" supplier-id="11" />
+                        <img class="suppliers__image" src="../static/images/suppliersImages/3_3.png" supplier-id="12" />
+                        <img class="suppliers__image" src="../static/images/suppliersImages/3_4.png" supplier-id="13" />
+                    </div>
+                    <div class="suppliers-rows-4">
+                        <img class="suppliers__image" src="../static/images/suppliersImages/4_1.png" supplier-id="14" />
+                        <img class="suppliers__image" src="../static/images/suppliersImages/4_2.png" supplier-id="15" />
+                        <img class="suppliers__image" src="../static/images/suppliersImages/4_3.png" supplier-id="16" />
+                        <img class="suppliers__image" src="../static/images/suppliersImages/4_4.png" supplier-id="17" />
+                        <img class="suppliers__image" src="../static/images/suppliersImages/4_5.png" supplier-id="18" />
+                    </div>
+                </div>
+            </div>
+            <div class="profile-and-date-container">
+                <div class="profile-container profile">
+                    <div class="profile-avatar">
+                        <div class="profile-avatar-image"></div>
+                    </div>
+                    <div class="toys-container">
+                        <div class="toy-gold-container">
+                            <img class="toy-gold-icon" src="../static/images/globalsImages/toyRed0.png" />
+                            <span class="toys-count" id="toy-gold-count">0 шт</span>
+                        </div>
+                        <div class="toy-red-container">
+                            <img class="toy-red-icon" src="../static/images/globalsImages/toyRed0.png" />
+                            <span class="toys-count" id="toy-red-count">0 шт</span>
+                        </div>
+                    </div>
+                    <div class="complete-progress">
+                        <span class="complete-progress-count"></span>
+                        <div class="progress-bar">
+                            <div class="no-complete-progress-bar">
+                                <div class="complete-progress-bar"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="profile-actions-container">
+                    <div class="rewards-button disable">
+                        Награды
+                    </div>
+                    <div class="draw-date-container">
+                        <div class="draw-date">
+                            <div class="draw-date-checkbox">
+                                <img class="draw-date-checkbox-icon" src="../static/images/mainPageImages/drawIconNot.png" alt="" />
+                            </div>
+                            <span class="draw-date-text">розыгрыш призов с 18 по 24</span>
+                        </div>
+                        <div class="draw-date">
+                            <div class="draw-date-checkbox">
+                                <img class="draw-date-checkbox-icon" src="../static/images/mainPageImages/drawIconNot.png" alt="" />
+                            </div>
+                            <span class="draw-date-text">розыгрыш призов с 25 по 1</span>
+                        </div>
+                        <div class="draw-date">
+                            <div class="draw-date-checkbox">
+                                <img class="draw-date-checkbox-icon" src="../static/images/mainPageImages/drawIconNot.png" alt="" />
+                            </div>
+                            <span class="draw-date-text">розыгрыш призов с 2 по 8</span>
+                        </div>
+                    </div>
+                    <div class="check-registration-button">
+                        Регистрация чеков
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main-game">
+            <img class="main-game-snake" src="../static/images/mainPageImages/snake.png" />
+            <div class="main-game-step" id="step_1" style="display: none;">1</div>
+            <div class="main-game-step" id="step_2" style="display: none">2</div>
+            <div class="main-game-step" id="step_3" style="display: none">3</div>
+            <div class="main-game-step" id="step_4" style="display: none">4</div>
+            <div class="main-game-step" id="step_5" style="display: none">5</div>
+            <div class="main-game-step" id="step_6" style="display: none">6</div>
+            <div class="main-game-step" id="step_7" style="display: none">7</div>
+            <div class="main-game-step" id="step_8" style="display: none">8</div>
+            <div class="main-game-step" id="step_9" style="display: none">9</div>
+            <div class="main-game-step" id="step_10" style="display: none">10</div>
+            <div class="main-game-step" id="step_11" style="display: none">11</div>
+            <div class="main-game-step" id="step_12" style="display: none">12</div>
+            <div class="main-game-step" id="step_13" style="display: none">13</div>
+            <div class="main-game-step" id="step_14" style="display: none">14</div>
+            <div class="main-game-step" id="step_15" style="display: none">15</div>
+            <div class="main-game-step" id="step_16" style="display: none">16</div>
+            <div class="main-game-step" id="step_17" style="display: none">17</div>
+            <div class="main-game-step" id="step_18" style="display: none">18</div>
+            <div class="main-game-step" id="step_19" style="display: none">19</div>
+            <div class="main-game-step" id="step_20" style="display: none">20</div>
+            <div class="main-game-step" id="step_21" style="display: none">21</div>
+            <div class="main-game-step" id="step_22" style="display: none">22</div>
+            <div class="main-game-step" id="step_23" style="display: none">23</div>
+            <div class="main-game-step" id="step_24" style="display: none">24</div>
+            <div class="main-game-step" id="step_25" style="display: none">25</div>
+            <div class="main-game-step" id="step_26" style="display: none">26</div>
+            <div class="main-game-step" id="step_27" style="display: none">27</div>
+            <div class="main-game-step" id="step_28" style="display: none">28</div>
+            <div class="main-game-step" id="step_29" style="display: none">29</div>
+            <div class="main-game-step" id="step_30" style="display: none">30</div>
+            <div class="main-game-step" id="step_31" style="display: none">31</div>
+            <div class="main-game-step" id="step_32" style="display: none">32</div>
+            <div class="main-game-step" id="step_33" style="display: none">33</div>
+            <div class="main-game-step" id="step_34" style="display: none">34</div>
+            <div class="main-game-step" id="step_35" style="display: none">35</div>
+            <div class="main-game-step" id="step_36" style="display: none">36</div>
+            <div class="main-game-step" id="step_37" style="display: none">37</div>
+            <div class="main-game-step" id="step_38" style="display: none">38</div>
+            <div class="main-game-step" id="step_39" style="display: none">39</div>
+            <div class="main-game-step" id="step_40" style="display: none">40</div>
+        </div>
+    </div>
+    <div class="treasure-game-wrapper" id="Game1" style="display: none">
+        <div class="treasure-game-container">
+            <div class="treasure-game-heading">
+                <span class="treasure-game-heading-text">
+                    Сундуки везения
+                </span>
+                <img class="treasure-game-heading-cross" src="../static/images/miniGameImages/crossIcon.png" />
+            </div>
+            <div class="treasure-game-chest-container">
+                <img class="treasure-game-chest" id="chest1" src="../static/images/miniGameImages/chest1.png">
+                <img class="treasure-game-chest" id="chest2" src="../static/images/miniGameImages/chest2.png">
+                <img class="treasure-game-chest" id="chest3" src="../static/images/miniGameImages/chest3.png">
+            </div>
+        </div>
+    </div>
+    <div class="tic-tac-game-wrapper" id="Game2" style="display: none">
+        <div class="tic-tac-game-container">
+            <div class="tic-tac-game-heading">
+                <span class="tic-tac-game-heading-text">
+                    Крестики нолики
+                </span>
+                <img class="tic-tac-game-heading-cross" src="../static/images/miniGameImages/crossIcon.png" />
+            </div>
+            <div class="tic-tac-game">
+                <div class="tic-tac-board" id="ticTacBoard">
+                    <div class="tic-tac-row">
+                        <div class="tic-tac-cell" id="cell-1"></div>
+                        <div class="tic-tac-cell" id="cell-2"></div>
+                        <div class="tic-tac-cell" id="cell-3"></div>
+                    </div>
+                    <div class="tic-tac-row">
+                        <div class="tic-tac-cell" id="cell-4"></div>
+                        <div class="tic-tac-cell" id="cell-5"></div>
+                        <div class="tic-tac-cell" id="cell-6"></div>
+                    </div>
+                    <div class="tic-tac-row">
+                        <div class="tic-tac-cell" id="cell-7"></div>
+                        <div class="tic-tac-cell" id="cell-8"></div>
+                        <div class="tic-tac-cell" id="cell-9"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="tic-tac-restart-button" style="display: none">
+                <img class="tic-tac-restart-button__icon" src="../static/images/globalsImages/roundArrowIcon.png">
+            </div>
+        </div>
+    </div>
+    <div class="puzzle-game-wrapper" id="Game3" style="display: none">
+        <div class="puzzle-game-container">
+            <div class="puzzle-game-heading">
+                <span class="puzzle-game-heading-text">
+                    Паззл
+                </span>
+                <img class="puzzle-game-heading-cross" src="../static/images/miniGameImages/crossIcon.png" />
+            </div>
+            <div class="puzzle-game">
+                <div class="puzzle-board" id="puzzleContainer">
+                    <div class="puzzle-piece" draggable="true" id="piece-1" style="background-image: url('../static/images/miniGameImages/puzzleImage.jpg/1.jpg')"></div>
+                    <div class="puzzle-piece" draggable="true" id="piece-2" style="background-image: url('../static/images/miniGameImages/puzzleImage.jpg/2.jpg')"></div>
+                    <div class="puzzle-piece" draggable="true" id="piece-3" style="background-image: url('../static/images/miniGameImages/puzzleImage.jpg/3.jpg')"></div>
+                    <div class="puzzle-piece" draggable="true" id="piece-4" style="background-image: url('../static/images/miniGameImages/puzzleImage.jpg/4.jpg')"></div>
+                    <div class="puzzle-piece" draggable="true" id="piece-5" style="background-image: url('../static/images/miniGameImages/puzzleImage.jpg/5.jpg')"></div>
+                    <div class="puzzle-piece" draggable="true" id="piece-6" style="background-image: url('../static/images/miniGameImages/puzzleImage.jpg/6.jpg')"></div>
+                    <div class="puzzle-piece" draggable="true" id="piece-7" style="background-image: url('../static/images/miniGameImages/puzzleImage.jpg/7.jpg')"></div>
+                    <div class="puzzle-piece" draggable="true" id="piece-8" style="background-image: url('../static/images/miniGameImages/puzzleImage.jpg/8.jpg')"></div>
+                    <div class="puzzle-piece" draggable="true" id="piece-9" style="background-image: url('../static/images/miniGameImages/puzzleImage.jpg/9.jpg')"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="find-diff-game-wrapper" id="Game4" style="display: none">
+        <div class="find-diff-game-container">
+            <div class="find-diff-heading">
+                Найди отличия
+                <img class="find-diff-heading-cross" src="../static/images/miniGameImages/crossIcon.png" />
+            </div>
+            <div class="find-diff-game">
+                <div class="find-diff-main-image-container">
+                    <img class="find-diff-main-image" src="../static/images/miniGameImages/diffGame1.png">
+                    <div class="diff-1 diff" data-index="0"></div>
+                    <div class="diff-2 diff" data-index="1"></div>
+                    <div class="diff-3 diff" data-index="2"></div>
+                    <div class="diff-4 diff" data-index="3"></div>
+                    <div class="diff-5 diff" data-index="4"></div>
+                    <div class="diff-6 diff" data-index="5"></div>
+                    <div class="diff-7 diff" data-index="6"></div>
+                    <div class="diff-8 diff" data-index="7"></div>
+                    <div class="diff-9 diff" data-index="8"></div>
+                    <div class="diff-10 diff" data-index="9"></div>
+                    <div class="diff-11 diff" data-index="10"></div>
+                    <div class="diff-12 diff" data-index="11"></div>
+                    <div class="diff-13 diff" data-index="12"></div>
+                </div>
+                <div class="find-diff-second-image-container">
+                    <img class="find-diff-second-image" src="../static/images/miniGameImages/diffGame2.png" />
+                    <div class="diff-1 diff" data-index="0"></div>
+                    <div class="diff-2 diff" data-index="1"></div>
+                    <div class="diff-3 diff" data-index="2"></div>
+                    <div class="diff-4 diff" data-index="3"></div>
+                    <div class="diff-5 diff" data-index="4"></div>
+                    <div class="diff-6 diff" data-index="5"></div>
+                    <div class="diff-7 diff" data-index="6"></div>
+                    <div class="diff-8 diff" data-index="7"></div>
+                    <div class="diff-9 diff" data-index="8"></div>
+                    <div class="diff-10 diff" data-index="9"></div>
+                    <div class="diff-11 diff" data-index="10"></div>
+                    <div class="diff-12 diff" data-index="11"></div>
+                    <div class="diff-13 diff" data-index="12"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="pop-up-balls-wrapper" style="display: none">
+        <div class="pop-up-balls-container">
+            <img class="pop-up-balls-image" src="../static/images/globalsImages/toyRedPopUp1.png"/>
+            <img class="pop-up-cross" src="../static/images/miniGameImages/crossIcon.png" />
+            <span class="pop-up-balls-text">
+                Вы получили часть шарика!
+                Соберите весь и получите шанс
+                побороться за главные призы!
+            </span>
+        </div>
+    </div>
+    <div class="registration-check-wrapper" style="display: none;">
+        <div class="registration-check-container">
+            <div class="registration-check-head">
+                Регистрация чека
+                <img class="registration-check-head-cross" src="../static/images/miniGameImages/crossIcon.png" />
+            </div>
+            <form class="registration-check-form" method="post" onsubmit="handleRegCheck(event)">
+                <div class="registration-check-input-container">
+                    <label for="numberCheck" class="registration-check-input-label">№ чека</label>
+                    <input class="registration-check-input" type="text" placeholder="Введите номер чека" id="numberCheck" required autocomplete="off"/>
+                </div>
+                <div class="registration-check-button-container">
+                    <div class="registration-check-response"></div>
+                    <button class="registration-check-button">
+                        Отправить
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="add-fio-wrapper" style="display: none;">
+        <div class="add-fio-container">
+            <div class="add-fio-head">
+                Добавление ФИО
+                <img class="add-fio-head-cross" src="../static/images/miniGameImages/crossIcon.png" />
+            </div>
+            <form class="add-fio-form" method="post" onsubmit="addFioFetch(event)">
+                <div class="add-fio-input-container">
+                    <label for="addFio" class="add-fio-input-label">ФИО</label>
+                    <input class="add-fio-input" type="text" placeholder="Введите ваше ФИО" id="addFio" required autocomplete="off"/>
+                </div>
+                <div class="add-fio-button-container">
+                    <div class="add-fio-response"></div>
+                    <button class="add-fio-button">
+                        Отправить
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="rewards-wrapper" style="display: none">
+        <div class="rewards-container">
+            <div class="rewards-heading">
+                <span class="rewards-heading__text">Ваши награды</span>
+                <img src="../static/images/miniGameImages/crossIcon.png" class="rewards-heading__cross" />
+            </div>
+            <div class="reward-container">
+
+            </div>
+        </div>
+    </div>
+
+    <div class="sound-switch">
+        <img class="sound-switch-icon" id="soundSwitch" src="../static/images/globalsImages/soundOffIcon.png"/>
+    </div>
+    <footer class="footer" id="footer">
+        <img class="footer-elka" src="../static/images/globalsImages/treeZeroGif.gif" />
+        <img class="footer-gifts" src="../static/images/globalsImages/giftsImage.png" />
+    </footer>
+    <audio id="audio" loop><source src="../static/sounds/sound.mp3" type="audio/mpeg"/></audio>
+    <script src="../static/js/const.js"></script>
+    <script src="../static/js/rewards.js"></script>
+    <script src="../static/js/soundSwitch.js"></script>
+    <script src="../static/js/puzzleGame.js"></script>
+    <script src="../static/js/treasureGame.js"></script>
+    <script src="../static/js/ticTacGame.js"></script>
+    <script src="../static/js/wheelGame.js"></script>
+    <script src="../static/js/checkRegistration.js"></script>
+    <script src="../static/js/addFio.js"></script>
+</body>
+
+</html>
+

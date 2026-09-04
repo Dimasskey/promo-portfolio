@@ -1,0 +1,480 @@
+.reviews-wrapper {
+  background-color: #fff;
+  grid-area: reviews;
+  border-radius: 1.5vw;
+  color: #6D6D6D;
+  display: flex;
+  flex-direction: column;
+  padding: 1vw 2.5vw 2vw 2.5vw;
+  row-gap: 1vw;
+
+  @include mobile {
+    padding: 1vw 4vw 5vw 4vw;
+    row-gap: 3vw;
+  }
+
+  .reviews-container-supplier {
+    display: flex;
+    width: 100%;
+
+    .reviews-supplier-photo {
+      display: flex;
+      flex-direction: column;
+      width: 30%;
+      align-items: center;
+      row-gap: 1vw;
+
+      @include mobile {
+        width: 40%;
+      }
+
+      .reviews-supplier-logo {
+        width: 15vw;
+
+        @include mobile {
+          width: 30vw;
+        }
+      }
+      .reviews-gift {
+        display: flex;
+        width: 18vw;
+        height: 18vw;
+        background-color: #D9D9D9;
+        border-radius: 3vw;
+        justify-content: center;
+        font-size: 1.5vw;
+        overflow: hidden;
+
+        @include mobile {
+          width: 35vw;
+          height: 35vw;
+        }
+
+        &__photo {
+          object-fit: contain;
+        }
+      }
+    }
+
+    .reviews-description {
+      display: flex;
+      flex-direction: column;
+      width: 50%;
+      margin-left: 5vw;
+      align-items: center;
+      row-gap: 1vw;
+
+      .reviews-description-header {
+        font-size: 2vw;
+
+        @include mobile {
+          font-size: 5vw;
+        }
+      }
+
+      .reviews-description-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+        word-break: break-word;
+        line-height: 1.25;
+        font-size: 1vw;
+
+        @include mobile {
+          font-size: 2vw;
+        }
+
+        .reviews-description__text {
+          max-height: 15vw;
+          overflow-y: scroll;
+
+          @include mobile {
+            max-height: 33vw;
+          }
+
+          &::-webkit-scrollbar {
+            display: block;
+            width: 0.5vw;
+          }
+
+          &::-webkit-scrollbar-thumb {
+            background-color: #00000040;
+            border-radius: 24px;
+          }
+        }
+      }
+    }
+  }
+  .reviews-comment-wrapper {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 0.2vw 0.5vw 0 rgba(0, 0, 0, 0.2509803922);
+    flex-direction: column;
+    border-radius: 1vw;
+    padding: 1vw 2.2vw 1vw 2.2vw;
+
+    @include mobile {
+      padding: 1vw 2.2vw 3vw 2.2vw;
+    }
+
+
+    .reviews-comment-head {
+
+      &__text {
+        font-size: 1.5vw;
+
+        @include mobile {
+          font-size: 3.5vw;
+        }
+      }
+    }
+
+    .reviews-container {
+      margin-top: 0.5vw;
+      display: flex;
+      flex-direction: column;
+      row-gap: 1vw;
+      max-height: 26vw;
+      min-height: 2vw;
+      overflow-y: auto;
+
+      @include mobile {
+        row-gap: 2vw;
+        max-height: 52vw;
+      }
+
+      &::-webkit-scrollbar {
+        display: block;
+        width: 0.5vw;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: #00000040;
+        border-radius: 24px;
+      }
+
+      .empty-review {
+        font-size: 1vw;
+
+        @include mobile {
+          font-size: 3vw;
+        }
+      }
+
+      .review-container {
+        display: grid;
+        grid-template-rows: 2vw 6vw;
+        grid-template-columns: 46vw 6vw;
+        grid-template-areas:
+        "name name"
+        "review image";
+        height: 8vw;
+        column-gap: 1vw;
+
+        @include mobile {
+          grid-template-rows: 4vw 12vw;
+          grid-template-columns: 68vw 12vw;
+          height: 16vw;
+        }
+
+
+
+        .review-profile-name {
+          grid-area: name;
+          display: flex;
+          align-items: center;
+
+          &__text {
+            font-size: 1vw;
+
+            @include mobile {
+              font-size: 2.5vw;
+            }
+          }
+        }
+
+        .review-text-container {
+          border: 0.15vw solid #6D6D6D;
+          border-radius: 0.5vw;
+          grid-area: review;
+          height: 6vw;
+          padding: 0.5% 1%;
+          font-size: 0.8vw;
+          overflow-y: scroll;
+
+          @include mobile {
+            height: 12vw;
+            font-size: 2.5vw;
+          }
+
+          &::-webkit-scrollbar {
+            display: block;
+            width: 0.5vw;
+          }
+
+          &::-webkit-scrollbar-thumb {
+            background-color: #00000040;
+            border-radius: 24px;
+          }
+        }
+
+        .review-image-container {
+          display: flex;
+          grid-area: image;
+          width: 6vw;
+          height: 6vw;
+          align-items: center;
+          justify-content: center;
+          object-fit: contain;
+          border: 0.15vw solid #6D6D6D;
+          border-radius: 0.5vw;
+          overflow: hidden;
+
+
+
+          @include mobile {
+            height: 12vw;
+            width: 12vw;
+          }
+
+          .review-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+
+    .review-add-container {
+      margin-top: 3vw;
+
+      .review-add-head {
+
+        @include mobile {
+          height: 5.8vw;
+        }
+
+        &__text {
+          font-size: 1vw;
+
+          @include mobile {
+            font-size: 3vw;
+          }
+        }
+      }
+
+      .review-add-form {
+        display: flex;
+        flex-direction: column;
+
+        .review-add-text-input {
+          display: flex;
+          column-gap: 1vw;
+
+          .review-add-textarea {
+            resize: none;
+            width: 46vw;
+            height: 6vw;
+            border: 0.15vw solid #6D6D6D;
+            border-radius: 0.5vw;
+            padding: 0.5% 1%;
+
+            @include mobile {
+              width: 68vw;
+              height: 12vw;
+              font-size: 2.5vw;
+            }
+          }
+
+          .review-add-attachment {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            position: relative;
+            cursor: pointer;
+            justify-content: center;
+            align-items: center;
+            border: 0.15vw solid;
+            border-radius: 0.5vw;
+            width: 6vw;
+            height: 6vw;
+
+            @include mobile {
+              width: 12vw;
+              height: 12vw;
+            }
+
+            &__icon {
+              width: 4vw;
+
+              @include mobile {
+                width: 10vw;
+              }
+            }
+
+            &__text {
+              font-size: 0.7vw;
+
+              @include mobile {
+                font-size: 1.5vw;
+              }
+            }
+
+            &-label {
+              display: block;
+              height: 100%;
+              width: 100%;
+              position: absolute;
+              top: 0;
+              bottom: 0;
+              left: 0;
+              right: 0;
+              opacity: 0;
+              cursor: pointer;
+
+              &__input {
+                display: none;
+              }
+            }
+          }
+
+          .review-add-attachment-preview {
+            text-align: center;
+            position: relative;
+            justify-content: center;
+            align-items: center;
+            border: 0.15vw solid;
+            border-radius: 0.5vw;
+            width: 6vw;
+            height: 6vw;
+
+            @include mobile {
+              width: 12vw;
+              height: 12vw;
+            }
+
+            &__delete {
+              position: absolute;
+              top: -1.8vw;
+              width: 105%;
+              border: 0.15vw solid;
+              border-radius: 0.5vw;
+              font-size: 0.7vw;
+              height: 1.5vw;
+              box-shadow: 0 0 0.2vw 0.1vw rgba(0, 0, 0, 0.2) inset;
+
+              @include mobile {
+                top: -3.8vw;
+                font-size: 1.5vw;
+                height: 2.5vw;
+              }
+            }
+
+            &__image {
+              width: 100%;
+              height: 100%;
+              object-fit: contain;
+            }
+          }
+        }
+
+
+        .review-add-submit {
+          margin-top: 1.25vw;
+          display: flex;
+          justify-content: space-between;
+          color: white;
+
+          @include mobile {
+            margin-top: 2vw;
+          }
+
+          .review-response {
+            display: flex;
+            align-items: center;
+            color: red;
+            margin-left: 1vw;
+            font-size: 1vw;
+            width: 56%;
+
+            @include mobile {
+              font-size: 2vw;
+            }
+          }
+
+          &__button {
+            height: 2.7vw;
+            width: 10vw;
+            border-radius: 2vw;
+            background-color: #ff4015;
+            margin-right: 1.7vw;
+            font-size: 1.5vw;
+            transition: background-color 0.2s ease;
+            position: relative;
+
+            &:hover {
+              background-color: #932d16;
+            }
+
+            &:active {
+              top: 0.1vw;
+            }
+
+            @include mobile {
+              height: 5vw;
+              width: 25vw;
+              border-radius: 4vw;
+              margin-right: 0.5vw;
+              font-size: 3vw;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.review-image-full-screen-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+
+  .review-close-full-screen {
+    position: absolute;
+    top: 3vw;
+    right: 4vw;
+    width: 3vw;
+    cursor: pointer;
+
+    @include mobile {
+      width: 10vw;
+    }
+  }
+}
+
+.review-image-full-screen-container {
+  width: 65vw;
+  height: 40vw;
+
+  @include mobile {
+    width: 78vw;
+    height: 165vw;
+  }
+
+  .review-image-full-screen {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}

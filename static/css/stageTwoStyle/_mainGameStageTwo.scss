@@ -1,0 +1,63 @@
+.main-game-step-stage-two {
+  font-size: 2vw;
+  display: flex;
+  position: absolute;
+  width: 5.75vw;
+  height: 5.75vw;
+  background-color: #00A093;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  @include mobile {
+    width: 8.5vw;
+    height: 8.5vw;
+    font-size: 3vw;
+  }
+}
+
+
+
+
+#step_41 {top: 1.87vw; left: 8.37vw;}
+#step_42 {top: 1.87vw; left: 19.4vw;}
+#step_43 {top: 1.87vw; left: 30.45vw;}
+#step_44 {top: 1.87vw; left: 41.45vw;}
+#step_45 {top: 8.9vw; left: 52.5vw;}
+#step_46 {top: 15.95vw; left: 41.45vw;}
+#step_47 {top: 15.95vw; left: 30.45vw;}
+#step_48 {top: 15.95vw; left: 19.4vw;}
+#step_49 {top: 22.95vw; left: 8.35vw;}
+#step_50 {top: 30.05vw; left: 19.45vw;}
+#step_51 {top: 30.05vw; left: 30.45vw;}
+#step_52 {top: 30.05vw; left: 41.45vw;}
+#step_53 {top: 37.05vw; left: 52.5vw;}
+#step_54 {top: 44.1vw; left: 41.45vw;}
+#step_55 {top: 44.1vw; left: 30.45vw;}
+#step_56 {top: 44.1vw; left: 19.45vw;}
+#step_57 {top: 51.15vw; left: 8.35vw;}
+#step_58 {top: 58.2vw; left: 19.45vw;}
+#step_59 {top: 58.2vw; left: 30.45vw;}
+#step_60 {top: 58.2vw; left: 41.45vw;}
+
+@include mobile {
+  #step_41 { top: 2.7vw; left: 12.3vw; }
+  #step_42 { top: 2.65vw; left: 28.55vw; }
+  #step_43 { top: 2.65vw; left: 44.8vw; }
+  #step_44 { top: 2.65vw; left: 61vw; }
+  #step_45 { top: 13vw; left: 77.3vw; }
+  #step_46 { top: 23.4vw; left: 61vw; }
+  #step_47 { top: 23.4vw; left: 44.8vw; }
+  #step_48 { top: 23.4vw; left: 28.55vw; }
+  #step_49 { top: 33.7vw; left: 12.25vw; }
+  #step_50 { top: 44.1vw; left: 28.55vw; }
+  #step_51 { top: 44.1vw; left: 44.8vw; }
+  #step_52 { top: 44.1vw; left: 61vw; }
+  #step_53 { top: 54.5vw;left: 77.3vw; }
+  #step_54 { top: 64.9vw; left: 61vw; }
+  #step_55 { top: 64.9vw; left: 44.8vw; }
+  #step_56 { top: 64.9vw; left: 28.55vw; }
+  #step_57 { top: 75.3vw; left: 12.3vw;}
+  #step_58 { top: 85.6vw; left: 28.55vw; }
+  #step_59 { top: 85.6vw; left: 44.8vw; }
+  #step_60 { top: 85.6vw; left: 61vw; }
+}

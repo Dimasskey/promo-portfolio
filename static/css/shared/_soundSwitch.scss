@@ -1,0 +1,23 @@
+.sound-switch {
+  display: flex;
+  position: fixed;
+  width: 5vw;
+  height: 5vw;
+  border-radius: 50%;
+  bottom: 1.5vw;
+  right: 1.5vw;
+  z-index: 10;
+  background-color: var(--background-color-el);
+  align-items: center;
+  justify-content: center;
+
+  @include mobile {
+    width: 8vw;
+    height: 8vw;
+  }
+
+  &-icon {
+    object-fit: contain;
+    width: 50%;
+  }
+}

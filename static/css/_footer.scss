@@ -1,0 +1,45 @@
+.footer {
+  grid-area: footer;
+  height: 20vw;
+  background-color: var(--background-color-alt);
+  position: relative;
+
+  @include mobile {
+    width: 100vw;
+  }
+
+  &-elka {
+    width: 25vw;
+    top: -15vw;
+    left: 37.5vw;
+    position: absolute;
+
+    @include mobile {
+      width: 33vw;
+      top: -20vw;
+      left: 35.5vw;
+      position: absolute;
+    }
+  }
+
+  &-elka-stage-two {
+    width: 40vw;
+    top: -16vw;
+    left: 27.5vw;
+    position: absolute;
+  }
+
+  &-gifts {
+    width: 44vw;
+    top: -12vw;
+    left: 29.5vw;
+    position: absolute;
+
+    @include mobile {
+      width: 53vw;
+      top: -15vw;
+      left: 27.5vw;
+      position: absolute;
+    }
+  }
+}

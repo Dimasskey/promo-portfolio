@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title>Змейка удачи 2025</title>
+    <link rel="stylesheet" href="../static/css/loginPageStyle/login.css">
+
+</head>
+<body class="auth-wrapper">
+    <div class="authentication-container">
+        <button class="registration-button">Регистрация</button>
+        <button class="entrance-button">Вход</button>
+    </div>
+    <div class="registration-container" id="registration" style="display: none;">
+        <div class="registration-heading">
+            <span class="registration-heading__text">Регистрация</span>
+        </div>
+        <form class="registration-form" method="post" onsubmit="handleRegistration(event)">
+            <div class="full-name-input-container">
+                <label class="full-name-text" for="fio">ФИО</label>
+                <input class="full-name-input" type="text" name="fio" id="fio" placeholder="Введите ваше ФИО" required autocomplete="off"/>
+            </div>
+            <div class="registration-number-input-container">
+                <label class="registration-number-text" for="regNumber">Телефон</label>
+                <input class="registration-number-input tel" type="text" name="number" id="regNumber" placeholder="Введите ваш номер телефона" required autocomplete="off"/>
+            </div>
+            <div class="registration-submit-button-container">
+                <div class="registration-response"></div>
+                <button class="registration-submit-button" type="submit">
+                    Отправить
+                </button>
+            </div>
+        </form>
+    </div>
+    <div class="login-container" style="display: none;">
+        <div class="login-heading">
+            <span class="login-heading__text">Вход</span>
+        </div>
+        <form class="login-form" method="post" onsubmit="handleLogin(event)">
+            <div class="login-number-input-container">
+                <label class="login-number-text" for="logNumber">Телефон</label>
+                <input class="login-number-input tel" type="text" name="number" id="logNumber" placeholder="Введите ваш номер телефона" required/>
+            </div>
+            <div class="login-submit-button-container">
+                <div class="login-response"></div>
+                <button class="login-submit-button" type="submit">
+                    Отправить
+                </button>
+            </div>
+        </form>
+    </div>
+    <div class="pop-up-check-reg-wrapper" style="display: none">
+        <div class="pop-up-check-reg-container">
+            <img class="pop-up-check-reg-cross" src="../static/images/miniGameImages/crossIcon.png" />
+            <span class="pop-up-check-reg-text"></span>
+        </div>
+    </div>
+    <script>
+        const authWrapper = document.querySelector(".authentication-container");
+        const regWrapper = document.querySelector(".registration-container");
+        const loginWrapper = document.querySelector(".login-container");
+        const regButton = document.querySelector(".registration-button");
+        const loginButton = document.querySelector(".entrance-button");
+
+        regButton.addEventListener("click", function () {
+            authWrapper.style.display = "none";
+            regWrapper.style.display = "flex";
+        })
+
+        loginButton.addEventListener("click", function () {
+            authWrapper.style.display = "none";
+            loginWrapper.style.display = "flex";
+        })
+    </script>
+    <script src="../static/js/auth.js"></script>
+    <script src="../static/js/const.js"></script>
+    <script src="../static/js/getUser.js"></script>
+</body>
+</html>

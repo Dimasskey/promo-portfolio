@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+  <title>Змейка удачи 2025</title>
+  <link rel="stylesheet" href="../static/css/supplierPageStyle/supplierMainStyle.css">
+    <script src="../static/js/getUser.js"></script>
+</head>
+<body>
+    <div class="onload-wrapper" id="onload">
+        <div class="onload-container" style="">
+            <span class="onload-text">Загрузка...</span>
+            <svg class="onload-spinner" viewBox="0 0 50 50">
+                <circle class="spinner-path" cx="25" cy="25" r="20" fill="none" stroke-width="5"></circle>
+            </svg>
+        </div>
+    </div>
+    <div class="supplier-page-wrapper">
+        <header class="wrapper__header header">
+            <div class="header-container">
+                <div class="header-inner">
+                    <div class="header-inner__logo logo">
+                        <a href="/"><img class="logo__image" src="../static/images/globalsImages/anixLogo.png" alt="Лого Аникс" /></a>
+                    </div>
+                    <nav class="header-inner__navigation navigation" >
+                        <ul class="navigation-menu">
+                            <li class="navigation-menu__item">
+                                <a href="/conditions">Условия</a>
+                             </li>
+                            <li class="navigation-menu__item">
+                                <a href="/gifts">Подарки</a>
+                            </li>
+                            <li class="navigation-menu__item">
+                                <a href="/winners">Победители</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+        <div class="supplier-main-logo">
+            <div class="supplier-main-logo__heading">
+                <span class="supplier-main-logo__text1">ИДЕМ НАВСТРЕЧУ</span>
+                <span class="supplier-main-logo__text2">НОВОМУ ГОДУ</span>
+            </div>
+            <img class="supplier-main-logo__image" src="../static/images/mainPageImages/year.png" />
+        </div>
+        <div class="reviews-wrapper">
+            <div class="reviews-container-supplier">
+                <div class="reviews-supplier-photo">
+                    <img class="reviews-supplier-logo" src="">
+                    <div class="reviews-gift">
+                        <img class="reviews-gift__photo" src="">
+                    </div>
+                </div>
+                <div class="reviews-description">
+                    <span class="reviews-description-header">Описание</span>
+                    <div class="reviews-description-container">
+                        <div class="reviews-description__text">
+                            Алейка - это натуральные продукты от щедрых полей Алтая!
+                            Мука, крупы, макароны и подсолнечное масло для тех, кто выбирает здоровое и вкусное питание для себя и своей семьи!
+                            Продукты, выпускаемые под торговой маркой «Алейка», наполнены энергией солнца, земли и добрых тружеников Алтая.
+                        </div>
+                        <div class="reviews-text">
+                            Делитесь вашими отзывами
+                            и предложениями, люди написавшие
+                            лучшие и развернутые отзывы получат приз
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="reviews-comment-wrapper">
+                <div class="reviews-comment-head">
+                    <span class="reviews-comment-head__text">Отзывы</span>
+                </div>
+                <div class="reviews-container">
+
+                </div>
+                <div class="review-add-container">
+                    <div class="review-add-head">
+                        <span class="review-add-head__text">Добавьте ваш отзыв</span>
+                    </div>
+                    <form class="review-add-form" onsubmit="handleAddReview(event)">
+                        <div class="review-add-text-input">
+                            <textarea class="review-add-textarea" required></textarea>
+                            <div class="review-add-attachment">
+                                <img class="review-add-attachment__icon" src="../static/images/globalsImages/addAttachmentIcon.png">
+                                <span class="review-add-attachment__text">Добавить фото</span>
+                                <label class="review-add-attachment-label">
+                                    <input class="review-add-attachment-label__input" type="file" accept="image/png, image/jpg, image/jpeg"/>
+                                </label>
+                            </div>
+                            <div class="review-add-attachment-preview" style="display: none;">
+                                <button type="button" class="review-add-attachment-preview__delete">Удалить фото</button>
+                                <img src="" alt="" class="review-add-attachment-preview__image">
+                            </div>
+                        </div>
+                        <div class="review-add-submit">
+                            <div class="review-response"></div>
+                            <button class="review-add-submit__button"> Отправить</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <audio id="audio" loop><source src="../static/sounds/sound.mp3" type="audio/mpeg"/></audio>
+    <script src="../static/js/const.js"></script>
+    <script src="../static/js/supplier.js"></script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title>Змейка удачи 2025</title>
+    <link rel="stylesheet" href="../static/css/winnersPageStyle/winnersMainStyle.css" />
+    <script src="../static/js/getUser.js"></script>
+    <script>
+        window.onload = function () {
+          document.getElementById('onload').style.display = 'none';
+        }
+    </script>
+</head>
+<body>
+    <div class="onload-wrapper" id="onload">
+        <div class="onload-container" style="">
+            <span class="onload-text">Загрузка...</span>
+            <svg class="onload-spinner" viewBox="0 0 50 50">
+                <circle class="spinner-path" cx="25" cy="25" r="20" fill="none" stroke-width="5"></circle>
+            </svg>
+        </div>
+    </div>
+    <div class="conditions-page-wrapper">
+        <header class="wrapper__header header">
+            <div class="header-container">
+                <div class="header-inner">
+                    <div class="header-inner__logo logo">
+                        <a href="/"><img class="logo__image" src="../static/images/globalsImages/anixLogo.png" alt="Лого Аникс" /></a>
+                    </div>
+                    <nav class="header-inner__navigation navigation" >
+                        <ul class="navigation-menu">
+                            <li class="navigation-menu__item">
+                                <a href="/conditions">Условия</a>
+                            </li>
+                            <li class="navigation-menu__item">
+                                <a href="/gifts">Подарки</a>
+                            </li>
+                            <li class="navigation-menu__item">
+                                <a href="/winners">Победители</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+        <div class="main-logo">
+            <img class="main-logo__heading" src="../static/images/globalsImages/logoText.png" />
+            <img class="main-logo__image" src="../static/images/mainPageImages/year.png" />
+        </div>
+        <div class="winners-main-container">
+          Победителей пока что нет...
+        </div>
+    </div>
+    <div class="sound-switch">
+        <img class="sound-switch-icon" id="soundSwitch" src="../static/images/globalsImages/soundOffIcon.png"/>
+    </div>
+    <audio id="audio" loop><source src="../static/sounds/sound.mp3" type="audio/mpeg"/></audio>
+    <script src="../static/js/soundSwitch.js"></script>
+</body>
+</html>

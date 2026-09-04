@@ -1,0 +1,37 @@
+.prizes-from-suppliers-container {
+  grid-area: prizesFromPartners;
+  height: 20vw;
+  border-radius: 1vw;
+  background-color: var(--background-color-alt);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 14vw;
+  margin-bottom: 20vw;
+  row-gap: 1vw;
+
+  @include mobile {
+    height: 24vw;
+  }
+}
+
+.prizes-from-suppliers-heading {
+  font-size: 3.5vw;
+
+  @include mobile {
+    font-size: 4vw;
+  }
+}
+
+.prizes-from-suppliers-text {
+  font-size: 1.5vw;
+  line-height: 1.25;
+  font-family: Inter, sans-serif;
+
+
+  @include mobile {
+    font-size: 2.5vw;
+  }
+}

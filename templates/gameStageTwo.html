@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title>Змейка удачи 2025</title>
+    <link rel="stylesheet" href="../static/css/stageTwoStyle/mainStyleStageTwo.css" />
+    <script src="../static/js/getUser.js"></script>
+    <script src="../static/js/onLoadStageTwo.js" defer></script>
+</head>
+<body>
+    <div class="onload-wrapper" id="onload">
+        <div class="onload-container" style="">
+            <span class="onload-text">Загрузка...</span>
+            <svg class="onload-spinner" viewBox="0 0 50 50">
+                <circle class="spinner-path" cx="25" cy="25" r="20" fill="none" stroke-width="5"></circle>
+            </svg>
+        </div>
+    </div>
+    <div class="main-stage-two-wrapper">
+        <header class="wrapper__header header">
+            <div class="header-container">
+                <div class="header-inner">
+                    <div class="header-inner__logo logo">
+                        <a href="/"><img class="logo__image" src="../static/images/globalsImages/anixLogo.png" alt="Лого Аникс" /></a>
+                    </div>
+                    <nav class="header-inner__navigation navigation" >
+                        <ul class="navigation-menu">
+                            <li class="navigation-menu__item">
+                                <a href="/conditions">Условия</a>
+                            </li>
+                            <li class="navigation-menu__item">
+                                <a href="/gifts">Подарки</a>
+                            </li>
+                            <li class="navigation-menu__item">
+                                <a href="/winners">Победители</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+        <div class="main-logo">
+            <img class="main-logo__heading" src="../static/images/globalsImages/logoText.png" />
+            <img class="main-logo__image" src="../static/images/mainPageImages/year.png" />
+        </div>
+        <div class="info-block-container">
+            <div class="wrapper-suppliers">
+                <div class="suppliers-container suppliers">
+                    <span class="suppliers__heading">Поставщики</span>
+                    <div class="suppliers-rows-1">
+                        <img class="suppliers__image" src="../static/images/suppliersImages/1_1.png" supplier-id="1" />
+                        <img class="suppliers__image" src="../static/images/suppliersImages/1_2.png" supplier-id="2" />
+                        <img class="suppliers__image" src="../static/images/suppliersImages/1_3.png" supplier-id="3" />
+                        <img class="suppliers__image" src="../static/images/suppliersImages/1_4.png" supplier-id="4" />
+                    </div>
+                    <div class="suppliers-rows-2">
+                        <img class="suppliers__image" src="../static/images/suppliersImages/2_1.png" supplier-id="5" />
+                        <img class="suppliers__image" src="../static/images/suppliersImages/2_2.png" supplier-id="6" />
+                        <img class="suppliers__image" src="../static/images/suppliersImages/2_3.png" supplier-id="7" />
+                        <img class="suppliers__image" src="../static/images/suppliersImages/2_4.png" supplier-id="8" />
+                        <img class="suppliers__image" src="../static/images/suppliersImages/2_5.png" supplier-id="9" />
+                    </div>
+                    <div class="suppliers-rows-3">
+                        <img class="suppliers__image" src="../static/images/suppliersImages/3_1.png" supplier-id="10" />
+                        <img class="suppliers__image" src="../static/images/suppliersImages/3_2.png" supplier-id="11" />
+                        <img class="suppliers__image" src="../static/images/suppliersImages/3_3.png" supplier-id="12" />
+                        <img class="suppliers__image" src="../static/images/suppliersImages/3_4.png" supplier-id="13" />
+                    </div>
+                    <div class="suppliers-rows-4">
+                        <img class="suppliers__image" src="../static/images/suppliersImages/4_1.png" supplier-id="14" />
+                        <img class="suppliers__image" src="../static/images/suppliersImages/4_2.png" supplier-id="15" />
+                        <img class="suppliers__image" src="../static/images/suppliersImages/4_3.png" supplier-id="16" />
+                        <img class="suppliers__image" src="../static/images/suppliersImages/4_4.png" supplier-id="17" />
+                        <img class="suppliers__image" src="../static/images/suppliersImages/4_5.png" supplier-id="18" />
+                    </div>
+                </div>
+            </div>
+            <div class="profile-and-date-container">
+                <div class="profile-container profile">
+                    <div class="profile-avatar">
+                        <div class="profile-avatar-image"></div>
+                    </div>
+                    <div class="toys-container">
+                        <div class="toy-gold-container">
+                            <img class="toy-gold-icon" src="../static/images/globalsImages/toyRed0.png" />
+                            <span class="toys-count" id="toy-gold-count">0 шт</span>
+                        </div>
+                        <div class="toy-red-container">
+                            <img class="toy-red-icon" src="../static/images/globalsImages/toyRedFull.png" />
+                            <span class="toys-count" id="toy-red-count">2 шт</span>
+                        </div>
+                    </div>
+                    <div class="complete-progress">
+                        <span class="complete-progress-count"></span>
+                        <div class="progress-bar">
+                            <div class="no-complete-progress-bar">
+                                <div class="complete-progress-bar"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="profile-actions-container">
+                    <div class="rewards-button">
+                        Награды
+                    </div>
+                    <div class="draw-date-container">
+                        <div class="draw-date">
+                            <div class="draw-date-checkbox">
+                                <img class="draw-date-checkbox-icon" src="../static/images/mainPageImages/drawIconNot.png" alt="" />
+                            </div>
+                            <span class="draw-date-text">розыгрыш призов с 18 по 24</span>
+                        </div>
+                        <div class="draw-date">
+                            <div class="draw-date-checkbox">
+                                <img class="draw-date-checkbox-icon" src="../static/images/mainPageImages/drawIconNot.png" alt="" />
+                            </div>
+                            <span class="draw-date-text">розыгрыш призов с 25 по 1</span>
+                        </div>
+                        <div class="draw-date">
+                            <div class="draw-date-checkbox">
+                                <img class="draw-date-checkbox-icon" src="../static/images/mainPageImages/drawIconNot.png" alt="" />
+                            </div>
+                            <span class="draw-date-text">розыгрыш призов с 2 по 8</span>
+                        </div>
+                    </div>
+                    <div class="check-registration-button">
+                        Регистрация чеков
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main-game">
+            <img class="main-game-snake" src="../static/images/stageTwoImages/snakeStageTwoImage.png" />
+            <div class="main-game-step-stage-two" id="step_41" style="display: none;">1</div>
+            <div class="main-game-step-stage-two" id="step_42" style="display: none;">2</div>
+            <div class="main-game-step-stage-two" id="step_43" style="display: none;">3</div>
+            <div class="main-game-step-stage-two" id="step_44" style="display: none;">4</div>
+            <div class="main-game-step-stage-two" id="step_45" style="display: none;">5</div>
+            <div class="main-game-step-stage-two" id="step_46" style="display: none;">6</div>
+            <div class="main-game-step-stage-two" id="step_47" style="display: none;">7</div>
+            <div class="main-game-step-stage-two" id="step_48" style="display: none;">8</div>
+            <div class="main-game-step-stage-two" id="step_49" style="display: none;">9</div>
+            <div class="main-game-step-stage-two" id="step_50" style="display: none;">10</div>
+            <div class="main-game-step-stage-two" id="step_51" style="display: none;">11</div>
+            <div class="main-game-step-stage-two" id="step_52" style="display: none;">12</div>
+            <div class="main-game-step-stage-two" id="step_53" style="display: none;">13</div>
+            <div class="main-game-step-stage-two" id="step_54" style="display: none;">14</div>
+            <div class="main-game-step-stage-two" id="step_55" style="display: none;">15</div>
+            <div class="main-game-step-stage-two" id="step_56" style="display: none;">16</div>
+            <div class="main-game-step-stage-two" id="step_57" style="display: none;">17</div>
+            <div class="main-game-step-stage-two" id="step_58" style="display: none;">18</div>
+            <div class="main-game-step-stage-two" id="step_59" style="display: none;">19</div>
+            <div class="main-game-step-stage-two" id="step_60" style="display: none;">20</div>
+        </div>
+    </div>
+    <div class="pop-up-balls-wrapper" style="display: none">
+        <div class="pop-up-balls-container">
+            <img class="pop-up-balls-image" src="../static/images/globalsImages/toyRedPopUp1.png"/>
+            <img class="pop-up-cross" src="../static/images/miniGameImages/crossIcon.png" />
+            <span class="pop-up-balls-text">
+                Вы получили часть шарика!
+                Соберите весь и получите шанс
+                побороться за главные призы!
+            </span>
+        </div>
+    </div>
+    <div class="registration-check-wrapper" style="display: none;">
+        <div class="registration-check-container">
+            <div class="registration-check-head">
+                Регистрация чека
+                <img class="registration-check-head-cross" src="../static/images/miniGameImages/crossIcon.png" />
+            </div>
+            <form class="registration-check-form" method="post" onsubmit="handleRegCheck(event)">
+                <div class="registration-check-input-container">
+                    <label for="numberCheck" class="registration-check-input-label">№ чека</label>
+                    <input class="registration-check-input" type="text" placeholder="Введите номер чека" id="numberCheck" required autocomplete="off"/>
+                </div>
+                <div class="registration-check-button-container">
+                    <div class="registration-check-response"></div>
+                    <button class="registration-check-button">
+                        Отправить
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="add-fio-wrapper" style="display: none;">
+        <div class="add-fio-container">
+            <div class="add-fio-head">
+                Добавление ФИО
+                <img class="add-fio-head-cross" src="../static/images/miniGameImages/crossIcon.png" />
+            </div>
+            <form class="add-fio-form" method="post" onsubmit="addFioFetch(event)">
+                <div class="add-fio-input-container">
+                    <label for="addFio" class="add-fio-input-label">ФИО</label>
+                    <input class="add-fio-input" type="text" placeholder="Введите ваше ФИО" id="addFio" required autocomplete="off"/>
+                </div>
+                <div class="add-fio-button-container">
+                    <div class="add-fio-response"></div>
+                    <button class="add-fio-button">
+                        Отправить
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="sound-switch">
+        <img class="sound-switch-icon" id="soundSwitch" src="../static/images/globalsImages/soundOffIcon.png"/>
+    </div>
+    <footer class="footer" id="footer">
+        <img class="footer-elka" src="../static/images/globalsImages/treeZeroGif.gif" />
+        <img class="footer-gifts" src="../static/images/globalsImages/giftsImage.png" />
+    </footer>
+    <audio id="audio" loop><source src="../static/sounds/sound.mp3" type="audio/mpeg"/></audio>
+    <script src="../static/js/const.js"></script>
+    <script src="../static/js/soundSwitch.js"></script>
+    <script src="../static/js/checkRegistration.js"></script>
+    <script src="../static/js/addFio.js"></script>
+</body>
+</html>

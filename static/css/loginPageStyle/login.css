@@ -1,0 +1,620 @@
+@charset "UTF-8";
+/**
+  Нормализация блочной модели
+ */
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+a {
+  color: currentColor;
+  text-decoration: none;
+}
+
+/**
+  Убираем внутренние отступы слева тегам списков,
+  у которых есть атрибут class
+ */
+:where(ul, ol):where([class]) {
+  padding-left: 0;
+}
+
+/**
+  Убираем внешние отступы body и двум другим тегам,
+  у которых есть атрибут class
+ */
+body,
+:where(blockquote, figure):where([class]) {
+  margin: 0;
+}
+
+/**
+  Убираем внешние отступы вертикали нужным тегам,
+  у которых есть атрибут class
+ */
+:where(h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+dl) {
+  margin-block: 0;
+}
+
+:where(dd[class]) {
+  margin-left: 0;
+}
+
+:where(fieldset[class]) {
+  margin-left: 0;
+  padding: 0;
+  border: none;
+}
+
+/**
+  Убираем стандартный маркер маркированному списку,
+  у которого есть атрибут class
+ */
+:where(ul[class]) {
+  list-style: none;
+}
+
+:where(address[class]) {
+  font-style: normal;
+}
+
+/**
+  Обнуляем вертикальные внешние отступы параграфа,
+  объявляем локальную переменную для внешнего отступа вниз,
+  чтобы избежать взаимодействие с более сложным селектором
+ */
+p {
+  --paragraphMarginBottom: 24px;
+  margin-block: 0;
+}
+
+/**
+  Внешний отступ вниз для параграфа без атрибута class,
+  который расположен не последним среди своих соседних элементов
+ */
+p:where(:not([class]):not(:last-child)) {
+  margin-bottom: var(--paragraphMarginBottom);
+}
+
+/**
+  Упрощаем работу с изображениями
+ */
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/**
+  Наследуем свойства шрифт для полей ввода
+ */
+input,
+textarea,
+select,
+button {
+  font: inherit;
+  padding: 0;
+  color: currentColor;
+  border: none;
+}
+
+input:focus {
+  outline: none;
+}
+
+html {
+  /**
+    Пригодится в большинстве ситуаций
+    (когда, например, нужно будет "прижать" футер к низу сайта)
+   */
+  height: 100%;
+}
+
+/**
+  Плавный скролл
+ */
+html,
+:has(:target) {
+  scroll-behavior: smooth;
+}
+
+body {
+  /**
+    Пригодится в большинстве ситуаций
+    (когда, например, нужно будет "прижать" футер к низу сайта)
+   */
+  min-height: 100%;
+  /**
+    Унифицированный интерлиньяж
+   */
+  line-height: 1.5;
+}
+
+/**
+  Приводим к единому цвету svg-элементы
+ */
+svg *[fill] {
+  fill: currentColor;
+}
+
+svg *[stroke] {
+  stroke: currentColor;
+}
+
+/**
+  Чиним баг задержки смены цвета при взаимодействии с svg-элементами
+ */
+svg * {
+  transition-property: fill, stroke;
+}
+
+/**
+  Удаляем все анимации и переходы для людей,
+  которые предпочитают их не использовать
+ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+:root {
+  --background-color: #3B226B;
+  --background-color-alt: #250E53;
+  --background-color-el: #04003D;
+  --background-color-el-alt: #ffffff;
+}
+
+@font-face {
+  font-family: "Bebas Neue";
+  src: url("../../fonts/Bebas Neue.ttf");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("../../fonts/Inter-VariableFont_opsz,wght.ttf");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Akshar";
+  src: url("../../fonts/Akshar-Regular.ttf");
+  font-weight: 400;
+}
+.auth-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  background-color: var(--background-color-el);
+  color: white;
+  font-family: "Inter", sans-serif;
+}
+
+.authentication-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 35vw;
+  height: 20vw;
+  background-color: var(--background-color);
+  border-radius: 2vw;
+  row-gap: 2vw;
+}
+@media (max-width: 900px) {
+  .authentication-container {
+    width: 72vw;
+    height: 51vw;
+    row-gap: 6vw;
+    border-radius: 5vw;
+  }
+}
+.authentication-container .registration-button {
+  height: 3.5vw;
+  width: 20vw;
+  background-color: #FF4A15;
+  border-radius: 2vw;
+  font-size: 2vw;
+  transition: background-color 0.2s ease;
+}
+.authentication-container .registration-button:hover {
+  background-color: #8f280b;
+}
+@media (max-width: 900px) {
+  .authentication-container .registration-button {
+    height: 11.5vw;
+    width: 54vw;
+    font-size: 6.5vw;
+    border-radius: 5vw;
+  }
+}
+.authentication-container .entrance-button {
+  height: 3.5vw;
+  width: 20vw;
+  background-color: #D92446;
+  border-radius: 2vw;
+  font-size: 2vw;
+  transition: background-color 0.2s ease;
+}
+.authentication-container .entrance-button:hover {
+  background-color: #932d16;
+}
+@media (max-width: 900px) {
+  .authentication-container .entrance-button {
+    height: 11.5vw;
+    width: 54vw;
+    font-size: 6.5vw;
+    border-radius: 5vw;
+  }
+}
+
+.registration-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 37vw;
+  height: 16vw;
+  background-color: var(--background-color);
+  border-radius: 2vw;
+  row-gap: 1.5vw;
+}
+@media (max-width: 900px) {
+  .registration-container {
+    width: 87vw;
+    height: 51vw;
+    row-gap: 3.5vw;
+    border-radius: 5vw;
+  }
+}
+.registration-container .registration-heading {
+  display: flex;
+  height: 17%;
+  align-items: center;
+  margin-top: 1vw;
+}
+@media (max-width: 900px) {
+  .registration-container .registration-heading {
+    margin-top: 3vw;
+  }
+}
+.registration-container .registration-heading__text {
+  font-size: 1.5vw;
+}
+@media (max-width: 900px) {
+  .registration-container .registration-heading__text {
+    font-size: 6.5vw;
+  }
+}
+.registration-container .registration-form {
+  width: 100%;
+}
+.registration-container .registration-form .full-name-input-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+.registration-container .registration-form .full-name-input-container .full-name-text {
+  font-size: 1.5vw;
+  margin-right: 2.05vw;
+  margin-left: 2.3vw;
+}
+@media (max-width: 900px) {
+  .registration-container .registration-form .full-name-input-container .full-name-text {
+    font-size: 5.5vw;
+    margin-right: 4.8vw;
+    margin-left: 6.4vw;
+  }
+}
+.registration-container .registration-form .full-name-input-container .full-name-input {
+  height: 2.5vw;
+  border-radius: 2vw;
+  padding-left: 0.5vw;
+  color: black;
+  width: 28vw;
+  font-size: 1vw;
+}
+@media (max-width: 900px) {
+  .registration-container .registration-form .full-name-input-container .full-name-input {
+    height: 8.5vw;
+    border-radius: 4vw;
+    padding-left: 2.5vw;
+    width: 60vw;
+    font-size: 3.3vw;
+  }
+}
+.registration-container .registration-form .registration-number-input-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-top: 1vw;
+}
+@media (max-width: 900px) {
+  .registration-container .registration-form .registration-number-input-container {
+    margin-top: 3vw;
+  }
+}
+.registration-container .registration-form .registration-number-input-container .registration-number-text {
+  font-size: 1.5vw;
+  margin-right: 1vw;
+  margin-left: 1vw;
+}
+@media (max-width: 900px) {
+  .registration-container .registration-form .registration-number-input-container .registration-number-text {
+    font-size: 5.5vw;
+  }
+}
+.registration-container .registration-form .registration-number-input-container .registration-number-input {
+  height: 2.5vw;
+  border-radius: 2vw;
+  padding-left: 0.5vw;
+  color: black;
+  width: 28vw;
+  font-size: 1vw;
+}
+@media (max-width: 900px) {
+  .registration-container .registration-form .registration-number-input-container .registration-number-input {
+    height: 8.5vw;
+    border-radius: 4vw;
+    padding-left: 2.5vw;
+    width: 60vw;
+    font-size: 3.3vw;
+  }
+}
+.registration-container .registration-form .registration-submit-button-container {
+  margin-top: 1vw;
+  display: flex;
+  justify-content: space-between;
+}
+@media (max-width: 900px) {
+  .registration-container .registration-form .registration-submit-button-container {
+    margin-top: 4vw;
+  }
+}
+.registration-container .registration-form .registration-submit-button-container .registration-response {
+  display: flex;
+  align-items: center;
+  color: red;
+  margin-left: 2vw;
+  font-size: 1vw;
+  width: 50%;
+}
+@media (max-width: 900px) {
+  .registration-container .registration-form .registration-submit-button-container .registration-response {
+    font-size: 2.8vw;
+    margin-left: 3vw;
+  }
+}
+.registration-container .registration-form .registration-submit-button-container .registration-submit-button {
+  height: 2vw;
+  width: 9vw;
+  border-radius: 2vw;
+  background-color: #FF4A15;
+  margin-right: 1.1vw;
+  font-size: 1.1vw;
+  transition: background-color 0.2s ease;
+  position: relative;
+}
+.registration-container .registration-form .registration-submit-button-container .registration-submit-button:hover {
+  background-color: #932d16;
+}
+.registration-container .registration-form .registration-submit-button-container .registration-submit-button:active {
+  top: 0.1vw;
+}
+@media (max-width: 900px) {
+  .registration-container .registration-form .registration-submit-button-container .registration-submit-button {
+    height: 8vw;
+    width: 30vw;
+    border-radius: 4vw;
+    margin-right: 3.5vw;
+    font-size: 4vw;
+  }
+}
+
+.login-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 27vw;
+  height: 12.5vw;
+  background-color: var(--background-color);
+  border-radius: 2vw;
+  row-gap: 1vw;
+}
+@media (max-width: 900px) {
+  .login-container {
+    width: 87vw;
+    height: 40vw;
+    row-gap: 3.5vw;
+    border-radius: 5vw;
+  }
+}
+.login-container .login-heading {
+  display: flex;
+  height: 12%;
+  align-items: center;
+  margin-top: 1.5vw;
+}
+@media (max-width: 900px) {
+  .login-container .login-heading {
+    margin-top: 4vw;
+  }
+}
+.login-container .login-heading__text {
+  font-size: 1.5vw;
+}
+@media (max-width: 900px) {
+  .login-container .login-heading__text {
+    font-size: 6.5vw;
+  }
+}
+.login-container .login-form {
+  width: 100%;
+}
+.login-container .login-form .login-number-input-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-top: 1vw;
+}
+@media (max-width: 900px) {
+  .login-container .login-form .login-number-input-container {
+    margin-top: 3vw;
+  }
+}
+.login-container .login-form .login-number-input-container .login-number-text {
+  font-size: 1.5vw;
+  margin-right: 1vw;
+  margin-left: 1vw;
+}
+@media (max-width: 900px) {
+  .login-container .login-form .login-number-input-container .login-number-text {
+    font-size: 5.5vw;
+    margin-left: 3vw;
+    margin-right: 3vw;
+  }
+}
+.login-container .login-form .login-number-input-container .login-number-input {
+  height: 2.5vw;
+  border-radius: 2vw;
+  padding-left: 1vw;
+  color: black;
+  width: 18vw;
+  font-size: 1vw;
+}
+@media (max-width: 900px) {
+  .login-container .login-form .login-number-input-container .login-number-input {
+    height: 8.5vw;
+    border-radius: 4vw;
+    padding-left: 2.5vw;
+    width: 56vw;
+    font-size: 3.3vw;
+  }
+}
+.login-container .login-form .login-submit-button-container {
+  margin-top: 1.25vw;
+  display: flex;
+  justify-content: space-between;
+}
+@media (max-width: 900px) {
+  .login-container .login-form .login-submit-button-container {
+    margin-top: 4vw;
+  }
+}
+.login-container .login-form .login-submit-button-container .login-response {
+  display: flex;
+  align-items: center;
+  color: red;
+  margin-left: 1vw;
+  font-size: 0.7vw;
+  width: 50%;
+}
+@media (max-width: 900px) {
+  .login-container .login-form .login-submit-button-container .login-response {
+    font-size: 2.8vw;
+    margin-left: 3vw;
+  }
+}
+.login-container .login-form .login-submit-button-container .login-submit-button {
+  height: 2vw;
+  width: 9vw;
+  border-radius: 2vw;
+  background-color: #ff4015;
+  margin-right: 1.1vw;
+  font-size: 1.1vw;
+  transition: background-color 0.2s ease;
+  position: relative;
+}
+.login-container .login-form .login-submit-button-container .login-submit-button:hover {
+  background-color: #932d16;
+}
+.login-container .login-form .login-submit-button-container .login-submit-button:active {
+  top: 0.1vw;
+}
+@media (max-width: 900px) {
+  .login-container .login-form .login-submit-button-container .login-submit-button {
+    height: 8vw;
+    width: 30vw;
+    border-radius: 4vw;
+    margin-right: 3.5vw;
+    font-size: 4vw;
+  }
+}
+
+.pop-up-check-reg-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.pop-up-check-reg-container {
+  background-color: var(--background-color);
+  width: 21vw;
+  height: 9vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  align-items: center;
+  border-radius: 1.5vw;
+  row-gap: 1vw;
+  font-family: "Akshar", sans-serif;
+  font-weight: 600;
+}
+@media (max-width: 900px) {
+  .pop-up-check-reg-container {
+    width: 70vw;
+    height: 30vw;
+    row-gap: 3vw;
+    border-radius: 3vw;
+  }
+}
+.pop-up-check-reg-container .pop-up-check-reg-text {
+  text-align: center;
+  width: 56%;
+  font-size: 1.1vw;
+}
+@media (max-width: 900px) {
+  .pop-up-check-reg-container .pop-up-check-reg-text {
+    font-size: 4vw;
+    width: 67%;
+  }
+}
+
+.pop-up-check-reg-cross {
+  position: absolute;
+  top: 1vw;
+  width: 2vw;
+  right: 1vw;
+  cursor: pointer;
+}
+@media (max-width: 900px) {
+  .pop-up-check-reg-cross {
+    width: 5vw;
+    top: 2vw;
+    right: 2vw;
+  }
+}
+
+/*# sourceMappingURL=login.css.map */

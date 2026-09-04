@@ -1,0 +1,70 @@
+.hill-prize-container {
+  background-color: var(--background-color-alt);
+  border-radius: 1vw;
+  grid-area: hillPrize;
+  height: 28vw;
+  display: flex;
+  align-items: center;
+  font-family: "Bebas Neue", sans-serif;
+
+  @include mobile {
+    height: 40vw;
+  }
+}
+
+.hill-prize-snake-container {
+  display: flex;
+  width: 45%;
+  height: 100%;
+  align-items: flex-start;
+  justify-content: flex-end;
+
+  .hill-prize-snake-icon {
+    width: 27vw;
+    object-fit: contain;
+
+    @include mobile {
+      width: 39vw;
+    }
+  }
+}
+
+.hill-prize-main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 55%;
+  row-gap: 1vw;
+  height: 100%;
+
+
+  .hill-prize-head-text {
+    font-size: 4vw;
+    line-height: 0.8;
+    margin-top: 3vw;
+
+    @include mobile {
+      font-size: 5vw;
+    }
+  }
+
+  .hill-prize-text {
+    text-align: center;
+    font-family: "Inter", sans-serif;
+    font-size: 1.5vw;
+    line-height: 1.25;
+    padding: 0 2vw;
+
+    @include mobile {
+      font-size: 2.5vw;
+    }
+  }
+
+  .hill-prize-icon {
+    width: 26vw;
+
+    @include mobile {
+      width: 46vw;
+    }
+  }
+}

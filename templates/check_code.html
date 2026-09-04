@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <title>Проверка чека</title>
+    </head>
+    <style>
+        .block {
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+            margin: 10% auto;
+            padding: 5%;
+            box-shadow: 0 0 10px;
+            border-radius: 9px;
+        }
+        label {
+            display: flex;
+            flex-direction: column;
+            padding: 1%;
+        }
+        input {
+            border: 1px solid #00000045;
+            border-radius: 6px;
+            padding: 1%;
+        }
+        button {
+            box-shadow: 0 0 11px 0 #00000059;
+            margin: 1%;
+            padding: 1%;
+            background: #33ff2a;
+            border: 1px solid #c0c0c094;
+            border-radius: 6px;
+            font-size: 1.2rem;
+        }
+        .error_block {
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+            top: 0;
+            backdrop-filter: blur(2px);
+            left: 0;
+        }
+        .error_block  > div {
+            width: 30%;
+            margin: 20% auto;
+            background: #fff;
+            padding: 2%;
+            box-shadow: 0 0 10px;
+            border-radius: 6px;
+        }
+    </style>
+    <body>
+        <div class="error_block" id="error_block" style="display: none" onclick="document.getElementById('error_block').style.display = 'none';">
+            <div>
+                <h3 id="error_header"></h3>
+                <p id="error_message"></p>
+            </div>
+        </div>
+        <div class="block">
+            <label>Код Чека: <input type="text" id="code_check" name="code_check"></label>
+            <button onclick="add_user();">Проверить</button>
+
+            <div id="message_success" style="padding: 2%; font-size: 1.3rem;"></div>
+        </div>
+    </body>
+    <script>
+        function show_warning(header, message) {
+            let error_block = document.getElementById('error_block'),
+                error_message = document.getElementById('error_message'),
+                error_header = document.getElementById('error_header');
+            error_block.style.display = 'block';
+            error_message.innerText = message;
+            error_header.innerText = header;
+        }
+
+        async function add_user() {
+            let code_check = document.getElementById('code_check'),
+                message_success = document.getElementById('message_success');
+
+            const response = await fetch('/api/check_code_check?code_check=' + code_check.value, {method: 'GET'});
+
+            const result = await response.json();
+            if (response.ok) {
+                message_success.innerText = result.message;
+            } else {
+                message_success.innerText = result.message;
+            }
+        }
+    </script>
+</html>

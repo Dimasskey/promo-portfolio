@@ -1,0 +1,70 @@
+.onload-wrapper {
+  display: flex;
+  z-index: 100;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  background: rgba(255, 255, 255, 0.7215686275);
+  backdrop-filter: blur(7px);
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+}
+
+.onload-container {
+  display: flex;
+  width: 20vw;
+  height: 11vw;
+  background-color: var(--background-color-alt);
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 3vw;
+
+  @include mobile {
+    width: 70vw;
+    height: 40vw;
+  }
+
+  .onload-text {
+    font-size: 3vw;
+
+    @include mobile {
+      font-size: 11vw;
+    }
+  }
+}
+
+.onload-spinner {
+  animation: rotate 2s linear infinite;
+  z-index: 2;
+  height: 50px;
+
+  .spinner-path {
+    stroke: #fff;
+    stroke-linecap: round;
+    animation: dash 1.5s ease-in-out infinite;
+    fill: var(--background-color-alt);
+  }
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes dash {
+  0% {
+    stroke-dasharray: 1, 150;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -35;
+  }
+  100% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -124;
+  }
+}

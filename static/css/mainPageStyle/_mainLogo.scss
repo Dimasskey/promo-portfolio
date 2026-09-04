@@ -1,0 +1,33 @@
+.main-logo {
+  grid-area: mainLogo;
+  display: flex;
+  background-color: var(--background-color-el);
+  border-radius: 1.5vw;
+  height: 8vw;
+  justify-content: center;
+  column-gap: 5vw;
+  align-items: center;
+
+  @include mobile {
+    height: 12vw;
+  }
+
+  &__heading {
+    width: 28vw;
+    height: 6vw;
+
+    @include mobile {
+      width: 42vw;
+      height: 8.5vw;
+    }
+  }
+
+  &__image {
+    width: 14vw;
+    object-fit: contain;
+
+    @include mobile {
+      width: 20vw;
+    }
+  }
+}

@@ -1,0 +1,104 @@
+.game-gift {
+  display: flex;
+  line-height: 1.25;
+  width: 73%;
+  justify-content: center;
+  height: 24%;
+  text-align: center;
+  font-size: 1.5vw;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 1vw;
+  transition: margin-top 1s ease;
+
+  @include mobile {
+    height: 48%;
+    align-items: center;
+    width: 100%;
+  }
+}
+
+.gift-step-container {
+  display: flex;
+  width: 50%;
+  justify-content: center;
+  align-items: center;
+  column-gap: 0.5vw;
+
+  @include mobile {
+    width: 100%;
+    column-gap: 2vw;
+  }
+}
+
+.gift-promo {
+  background-color: #fff;
+  border-radius: 2vw;
+  font-family: "Inter", sans-serif;
+  color: black;
+  padding: 3% 7% 3% 7%;
+  line-height: 1;
+  font-weight: 600;
+
+  @include mobile {
+    border-radius: 8vw;
+    padding: 4% 10% 4% 10%;
+    font-size: 6vw;
+  }
+}
+
+.gift_arrow {
+  height: 3vw;
+
+  @include mobile {
+    height: 10vw;
+  }
+}
+
+.gift_step1 {
+  font-size: 1.5vw;
+  display: flex;
+  width: 5vw;
+  height: 5vw;
+  background-color: orange;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  border: 0.6vw solid #fff;
+
+  @include mobile {
+    width: 18vw;
+    height: 18vw;
+    font-size: 6.5vw;
+    border: 2vw solid #fff;
+  }
+}
+
+.gift_step2 {
+  font-size: 1.5vw;
+  display: flex;
+  width: 5vw;
+  height: 5vw;
+  background-color: orange;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  border: 0.6vw solid #fff;
+
+  @include mobile {
+    width: 18vw;
+    height: 18vw;
+    font-size: 6.5vw;
+    border: 2vw solid #fff;
+  }
+}
+
+.game-gift__text {
+  font-family: "Akshar", sans-serif;
+  font-weight: 600;
+  font-size: 1.5vw;
+
+  @include mobile {
+    font-size: 5.5vw;
+  }
+}

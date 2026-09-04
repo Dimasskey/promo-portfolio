@@ -1,0 +1,70 @@
+.guide-container {
+  background-color: var(--background-color-alt);
+  grid-area: guide;
+  border-radius: 1vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 1vw;
+  height: 19vw;
+
+  @include mobile {
+    height: 34vw;
+  }
+}
+
+.guide-heading {
+  font-size: 3.5vw;
+  margin-top: 1vw;
+
+  @include mobile {
+    font-size: 6vw;
+  }
+}
+
+.guide-steps-container {
+  display: flex;
+  column-gap: 1vw;
+  justify-content: center;
+
+  .guide-steps-icon {
+    object-fit: contain;
+    width: 5vw;
+
+    @include mobile {
+      width: 10vw;
+    }
+  }
+
+  .guide-arrow-icon {
+    object-fit: contain;
+    width: 12vw;
+
+    @include mobile {
+      width: 20vw;
+    }
+  }
+}
+
+.guide-text-container {
+  display: flex;
+  font-size: 0.8vw;
+  width: 52vw;
+  text-align: center;
+  justify-content: space-between;
+
+  @include mobile {
+    font-size: 1.6vw;
+    width: 90vw;
+  }
+
+  .guide-text {
+    width: 14vw;
+    font-family: Inter, sans-serif;
+
+    @include mobile {
+      width: 28vw;
+    }
+  }
+}
+

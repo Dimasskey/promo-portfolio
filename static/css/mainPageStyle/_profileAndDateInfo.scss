@@ -1,0 +1,309 @@
+.profile-and-date-container {
+  width: 34%;
+  background-color: #EEE;
+  border-radius: 1vw;
+  box-shadow: -1vw 1vw 1vw 0px rgba(0, 0, 0, 0.25);
+}
+
+.profile {
+  background-color: var(--background-color-el);
+  border-radius: 1vw;
+  box-shadow: -1vw 1vw 1vw 0px rgba(0, 0, 0, 0.25);
+
+  &-container {
+    height: 43%;
+    display: grid;
+    grid-template-columns: 0.7fr 0.3fr;
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+          "avatar toys"
+          "progres progres";
+
+    @include mobile {
+      height: 41%;
+      grid-template-columns: 0.6fr 0.4fr;
+    }
+  }
+
+
+
+  &-avatar {
+    grid-area: avatar;
+    display: flex;
+    align-items: center;
+    margin-left: 1.5vw;
+
+
+    &-image {
+      border-radius: 50%;
+      width: 5vw;
+      height: 5vw;
+      background-size: cover;
+      background-image: url("../../images/globalsImages/emptyProfilePhoto.png");
+
+      @include mobile {
+        width: 8vw;
+        height: 8vw;
+      }
+
+    }
+
+    &-fio {
+      width: 7vw;
+      font-size: 1vw;
+      margin-left: 5%;
+      line-height: 1.25;
+
+      @include mobile {
+        font-size: 1.8vw;
+      }
+    }
+
+    &-add-fio {
+      width: 7vw;
+      font-size: 1vw;
+      margin-left: 5%;
+      line-height: 1.25;
+      position: relative;
+      background: none;
+
+      &:hover {
+        scale: 1.2;
+        text-decoration: underline;
+      }
+
+      &:active {
+        top: 0.1vw;
+      }
+
+      @include mobile {
+        font-size: 1.8vw;
+      }
+    }
+  }
+
+  .toys-container {
+    display: flex;
+    grid-area: toys;
+    column-gap: 0.5vw;
+
+    @include mobile {
+      justify-content: flex-end;
+    }
+
+    .toy-gold-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .toy-gold-icon {
+        width: 3vw;
+
+        @include mobile {
+          width: 5vw;
+        }
+      }
+    }
+
+    .toy-red-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .toy-red-icon {
+        width: 3vw;
+
+        @include mobile {
+          width: 5vw;
+        }
+      }
+    }
+
+    .toys-count {
+      font-size: 1vw;
+      font-weight: bold;
+
+      @include mobile {
+        font-size: 1.75vw;
+      }
+    }
+  }
+
+  .complete-progress {
+    grid-area: progres;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &-count {
+      font-size: 2vw;
+
+      @include mobile {
+        font-size: 3.5vw;
+      }
+    }
+
+    .progress-bar {
+      display: flex;
+      align-items: center;
+      width: 75%;
+
+      @include mobile {
+        width: 80%;
+      }
+
+      .no-complete-progress-bar {
+        border-radius: 1vw;
+        height: 0.35vw;
+        background-color: #D9D9D9;
+        margin-top: 0.5vw;
+        width: 100%;
+        position: relative;
+
+        @include mobile {
+          height: 1vw;
+        }
+
+        .complete-progress-bar {
+          border-radius: 1vw;
+          height: 0.35vw;
+          background-color: #FE81CD;
+          position: absolute;
+          top: 0;
+          left: 0;
+
+          @include mobile {
+            height: 1vw;
+          }
+        }
+      }
+    }
+  }
+}
+
+.profile-actions-container {
+  flex-direction: column;
+  color: #000;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  row-gap: 0.8vw;
+  height: 57%;
+
+
+  @include mobile {
+    height: 59%;
+    row-gap: 2vw;
+  }
+
+  .rewards-button {
+    text-align: center;
+    width: 80%;
+    background-color: #D9D9D9;
+    border-radius: 1vw;
+    color: #AEAEAE;
+    box-shadow: 0 0.2vw 0.5vw 0 #00000040;
+    font-family: "Akshar", sans-serif;
+    font-weight: 600;
+    font-size: 1.2vw;
+    display: flex;
+    justify-content: center;
+    height: 2.2vw;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+
+    &:hover {
+      background-color: #D9D9D9;
+    }
+
+    &:active {
+      top: 0.1vw;
+    }
+
+    @include mobile {
+      border-radius: 1.5vw;
+      font-size: 2.2vw;
+      height: 4vw;
+      box-shadow: 0 0.5vw 0.5vw 0 #00000040;
+    }
+  }
+
+  .draw-date-container {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.5vw;
+    font-size: 1.1vw;
+
+    @include mobile {
+      width: 92%;
+      row-gap: 1vw;
+      font-size: 1.8vw;
+    }
+
+    .draw-date {
+      display: flex;
+      align-items: center;
+      column-gap: 4%;
+
+      &-checkbox {
+        display: flex;
+        background-color: #D9D9D9;
+        height: 1.5vw;
+        width: 1.5vw;
+        padding: 1.5%;
+
+        @include mobile {
+          height: 3vw;
+          width: 3vw;
+          padding: 2%;
+        }
+
+        &-icon {
+          object-fit: contain;
+        }
+      }
+    }
+  }
+
+  .check-registration-button {
+    width: 80%;
+    text-align: center;
+    background-color: #D92446;
+    color: #fff;
+    border-radius: 1.5vw;
+    font-size: 1.5vw;
+    height: 4vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0.2vw 0.2vw 0 #00000063;
+    cursor: pointer;
+    position: relative;
+
+    &:hover {
+      background-color: #932d16;
+    }
+
+    &:active {
+      top: 0.1vw;
+    }
+
+    @include mobile {
+      height: 7vw;
+      font-size: 2.2vw;
+      border-radius: 2vw;
+      box-shadow: 0 0.5vw 0.2vw 0 #00000063;
+    }
+  }
+}
+
+
+
+
+
+
+
+

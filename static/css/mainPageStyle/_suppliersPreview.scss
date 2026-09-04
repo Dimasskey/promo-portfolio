@@ -1,0 +1,122 @@
+.info-block-container {
+  display: flex;
+  grid-area: infoBlock;
+  background-color: #fff;
+  border-radius: 1vw;
+  height: 28vw;
+
+  @include mobile {
+    height: 50vw;
+  }
+
+}
+
+.wrapper-suppliers {
+  width: 66%;
+}
+
+.suppliers {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+  height: 100%;
+  row-gap: 0.5vw;
+
+
+  &__heading {
+    grid-area: heading;
+    color: var(--background-color-el);
+    font-size: 2vw;
+    font-weight: bold;
+    height: 10%;
+
+    @include mobile {
+      font-size: 3.5vw;
+    }
+  }
+  .suppliers-rows-1 {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    height: 20%;
+    column-gap: 1vw;
+
+    @include mobile {
+      column-gap: 0.5vw;
+    }
+
+    .suppliers__image {
+      object-fit: contain;
+      width: 9vw;
+      cursor: pointer;
+
+      @include mobile {
+        width: 15vw;
+      }
+    }
+  }
+
+  .suppliers-rows-2 {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    height: 20%;
+    column-gap: 1vw;
+
+    @include mobile {
+      column-gap: 0.5vw;
+    }
+
+    .suppliers__image {
+      object-fit: contain;
+      width: 7.2vw;
+      cursor: pointer;
+
+      @include mobile {
+        width: 12vw;
+      }
+    }
+  }
+
+  .suppliers-rows-3 {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    height: 20%;
+    column-gap: 1vw;
+
+    .suppliers__image {
+      object-fit: contain;
+      width: 9vw;
+      cursor: pointer;
+
+      @include mobile {
+        width: 14.8vw;
+      }
+    }
+  }
+
+  .suppliers-rows-4 {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    height: 20%;
+    column-gap: 1.5vw;
+
+    @include mobile {
+      column-gap: 1vw;
+    }
+
+    .suppliers__image {
+      object-fit: contain;
+      width: 6.5vw;
+      cursor: pointer;
+
+      @include mobile {
+        width: 11.5vw;
+      }
+    }
+  }
+}
+

@@ -1,0 +1,112 @@
+
+.main-game {
+  grid-area: mainGame;
+  position: relative;
+  margin-bottom: 20vw;
+
+  &-snake {
+    width: 100%;
+  }
+
+  &-step {
+    font-size: 2vw;
+    display: flex;
+    position: absolute;
+    width: 6vw;
+    height: 6vw;
+    background-color: orange;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    @include mobile {
+      width: 9vw;
+      height: 9vw;
+      font-size: 3vw;
+    }
+  }
+}
+#step_1 { top: 1.85vw; left: 9.3vw; }
+#step_2 { top: 1.85vw; left: 20.9vw; }
+#step_3 { top: 1.85vw; left: 32.45vw; }
+#step_4 { top: 1.85vw; left: 44.05vw; }
+#step_5 { top: 9.25vw; left: 55.75vw; }
+#step_6 { top: 16.7vw; left: 44.05vw; }
+#step_7 { top: 16.7vw; left: 32.5vw; }
+#step_8 { top: 16.7vw; left: 20.9vw; }
+#step_9 { top: 24.1vw; left: 9.3vw; }
+#step_10 {background-image: url("../../images/mainPageImages/treasureStepImage.png"); background-size: contain; cursor: pointer; top: 31.5vw; left: 20.9vw; }
+#step_11 { top: 31.5vw; left: 32.5vw; }
+#step_12 { top: 31.5vw; left: 44.05vw; }
+#step_13 { top: 38.9vw; left: 55.7vw; }
+#step_14 { top: 46.3vw; left: 44.05vw; }
+#step_15 { top: 46.3vw; left: 32.5vw; }
+#step_16 { top: 46.3vw; left: 20.9vw; }
+#step_17 { top: 53.65vw; left: 9.25vw; }
+#step_18 { top: 61vw; left: 20.9vw; }
+#step_19 { top: 61vw; left: 32.5vw; }
+#step_20 {background-image: url("../../images/mainPageImages/krestikiNolikImage.png"); background-size: contain; background-color: cornflowerblue; cursor: pointer; top: 61vw; left: 44.05vw; }
+#step_21 { top: 68.5vw; left: 55.7vw; }
+#step_22 { top: 75.9vw; left: 44.05vw;}
+#step_23 { top: 75.9vw; left: 32.5vw;}
+#step_24 { top: 75.9vw; left: 20.9vw;}
+#step_25 { top: 83.3vw; left: 9.25vw;}
+#step_26 { top: 90.7vw; left: 20.9vw;}
+#step_27 { top: 90.7vw; left: 32.5vw;}
+#step_28 { top: 90.7vw; left: 44.05vw;}
+#step_29 { top: 98.1vw; left: 55.7vw;}
+#step_30 { top: 105.5vw; left: 44.05vw; cursor: pointer;}
+#step_31 { top: 105.5vw; left: 32.5vw;}
+#step_32 { top: 105.5vw; left: 20.9vw;}
+#step_33 { top: 112.9vw; left: 9.25vw;}
+#step_34 { top: 120.3vw; left: 20.9vw;}
+#step_35 { top: 120.3vw; left: 32.5vw;}
+#step_36 { top: 120.3vw; left: 44.05vw;}
+#step_37 { top: 127.7vw; left: 55.7vw;}
+#step_38 { top: 135.1vw; left: 44.05vw;}
+#step_39 { top: 135.1vw; left: 32.5vw;}
+#step_40 { top: 135.1vw; left: 20.9vw; cursor: pointer;}
+
+@include mobile {
+  #step_1 { top: 2.7vw; left: 13.7vw; }
+  #step_2 { top: 2.7vw; left: 30.68vw; }
+  #step_3 { top: 2.7vw; left: 47.7vw; }
+  #step_4 { top: 2.7vw; left: 64.75vw; }
+  #step_5 { top: 13.6vw; left: 81.94vw; }
+  #step_6 { top: 24.5vw; left: 64.75vw; }
+  #step_7 { top: 24.5vw; left: 47.7vw; }
+  #step_8 { top: 24.5vw; left: 30.68vw; }
+  #step_9 { top: 35.4vw; left: 13.6vw; }
+  #step_10 { top: 46.2vw; left: 30.68vw; }
+  #step_11 { top: 46.2vw; left: 47.7vw; }
+  #step_12 { top: 46.2vw; left: 64.75vw; }
+  #step_13 { top: 57.1vw; left: 81.9vw; }
+  #step_14 { top: 68.05vw; left: 64.75vw; }
+  #step_15 { top: 68.05vw; left: 47.7vw; }
+  #step_16 { top: 68.05vw; left: 30.68vw; }
+  #step_17 { top: 79vw; left: 13.57vw; }
+  #step_18 { top: 89.8vw; left: 30.68vw; }
+  #step_19 { top: 89.8vw; left: 47.7vw; }
+  #step_20 { top: 89.8vw; left: 64.75vw; }
+  #step_21 { top: 100.75vw; left: 81.9vw; }
+  #step_22 { top: 111.6vw; left: 64.75vw;}
+  #step_23 { top: 111.6vw; left: 47.7vw;}
+  #step_24 { top: 111.6vw; left: 30.68vw;}
+  #step_25 { top: 122.6vw; left: 13.55vw;}
+  #step_26 { top: 133.5vw; left: 30.67vw;}
+  #step_27 { top: 133.5vw; left: 47.7vw;}
+  #step_28 { top: 133.5vw; left: 64.75vw;}
+  #step_29 { top: 144.45vw; left: 81.9vw;}
+  #step_30 { top: 155.3vw; left: 64.75vw;}
+  #step_31 { top: 155.3vw; left: 47.7vw;}
+  #step_32 { top: 155.3vw; left: 30.67vw;}
+  #step_33 { top: 166.3vw; left: 13.55vw;}
+  #step_34 { top: 177.1vw; left: 30.67vw;}
+  #step_35 { top: 177.1vw; left: 47.7vw;}
+  #step_36 { top: 177.1vw; left: 64.75vw;}
+  #step_37 { top: 188vw; left: 81.9vw;}
+  #step_38 { top: 198.95vw; left: 64.75vw;}
+  #step_39 { top: 198.95vw; left: 47.7vw;}
+  #step_40 { top: 198.8vw; left: 30.66vw;}
+}
+
+

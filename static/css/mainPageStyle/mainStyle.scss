@@ -1,0 +1,56 @@
+@import "../utils/zero",
+        "../utils/variables",
+        "../utils/media",
+        "../utils/fonts";
+
+@import "../header",
+        "../mainPageStyle/mainLogo",
+        "../mainPageStyle/suppliersPreview",
+        "../mainPageStyle/profileAndDateInfo",
+        "../mainPageStyle/mainGame",
+        "../footer";
+
+@import "../miniGamesStyle/treasureGame",
+        "../miniGamesStyle/ticTacGame",
+        "../miniGamesStyle/puzzleGame",
+        "../miniGamesStyle/wheelStyle";
+
+@import "../shared/soundSwitch",
+        "../shared/onload",
+        "../shared/popUpBalls",
+        "../shared/gameGift",
+        "../shared/addFio",
+        "../shared/checkRegistration",
+        "../shared/rewards";
+
+body {
+  background-color: var(--background-color);
+  font-family: "Inter", sans-serif;
+  color: #fff;
+}
+
+.main-page-wrapper {
+  display: grid;
+  grid-template-columns: 1fr calc(100dvw/1.55) 1fr;
+  grid-template-rows: auto auto auto 1fr;
+  grid-template-areas:
+    ". header ."
+    ". mainLogo ."
+    ". infoBlock ."
+    ". mainGame ."
+    "footer footer footer";
+  row-gap: 1.5vw;
+
+  @include mobile {
+    justify-content: center;
+    grid-template-columns: 95vw;
+    grid-template-areas:
+    "header"
+    "mainLogo"
+    "infoBlock"
+    "mainGame";
+    row-gap: 2vw;
+  }
+}
+
+

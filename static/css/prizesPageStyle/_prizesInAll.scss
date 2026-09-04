@@ -1,0 +1,95 @@
+.prizes-per-store-container {
+  grid-area: prizesInAll;
+  height: 20vw;
+  border-radius: 1vw;
+  overflow: hidden;
+  position: relative;
+
+  @include mobile {
+    height: 25vw;
+  }
+}
+
+.prizes-per-store-text-container {
+  display: flex;
+  width: 70%;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 3vw;
+  text-align: center;
+
+  .prizes-per-store-heading {
+    font-size: 3.5vw;
+
+    @include mobile {
+      font-size: 4vw;
+    }
+  }
+
+  .prizes-per-store-text {
+    font-size: 1.5vw;
+    padding: 0 8vw;
+    line-height: 1.25;
+    font-family: Inter, sans-serif;
+
+    @include mobile {
+      font-size: 2.5vw;
+    }
+  }
+}
+
+.prizes-per-store-header {
+  background-color: var(--background-color-alt);
+  height: 70%;
+  overflow: hidden;
+}
+
+.prizes-per-store-footer {
+  background-color: #2D1658;
+  height: 30%;
+  overflow: hidden;
+}
+
+.stich-image {
+  width: 15vw;
+  position: absolute;
+  top: 1vw;
+  right: 6vw;
+  filter: drop-shadow(3vw 1.5vw 2vw #000);
+  z-index: 10;
+  @include mobile {
+    width: 18vw;
+    right: 9vw;
+  }
+}
+
+.store-elipse-header {
+  background-color: #534179;
+  position: relative;
+  top: -9vw;
+  left: 45vw;
+  width: 25vw;
+  height: 25vw;
+  border-radius: 50%;
+
+  @include mobile {
+    left: 70vw;
+    top: -14vw;
+    width: 32vw;
+    height: 32vw;
+  }
+}
+
+.store-elipse-footer {
+  background-color: #635289;
+  position: relative;
+  top: -11vw;
+  left: 44vw;
+  width: 39vw;
+  height: 25vw;
+  border-radius: 50%;
+
+  @include mobile {
+    left: 70vw;
+  }
+}

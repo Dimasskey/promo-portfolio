@@ -1,0 +1,125 @@
+.puzzle-game-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.puzzle-game-container {
+  background-color: var(--background-color);
+  width: 35vw;
+  height: 26vw;
+  border-radius: 1vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 1vw;
+  transition: height 1s ease;
+
+  @include mobile {
+    width: 90vw;
+    height: 96vw;
+    border-radius: 4vw;
+  }
+}
+
+.puzzle-game-heading {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-top: 1vw;
+
+  @include mobile {
+    padding-top: 3vw;
+  }
+
+  &-text {
+    font-size: 2vw;
+    font-family: "Akshar", sans-serif;
+    font-weight: 600;
+
+    @include mobile {
+      font-size: 7vw;
+    }
+  }
+
+  &-cross {
+    width: 2vw;
+    height: 2vw;
+    position: absolute;
+    cursor: pointer;
+    right: -13vw;
+
+    @include mobile {
+      width: 5vw;
+      height: 5vw;
+      right: -30vw;
+    }
+  }
+}
+
+.puzzle-game {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.puzzle-board {
+  width: 18vw;
+  height: 18vw;
+  border-radius: 2vw;
+  background-color: #1A0543;
+  display: grid;
+  grid-template-columns: repeat(3, 5vw);
+  grid-template-rows: repeat(3, 5vw);
+  gap: 0.1vw;
+  justify-content: center;
+  align-content: center;
+
+  @include mobile {
+    width: 75vw;
+    height: 75vw;
+    border-radius: 4vw;
+    grid-template-columns: repeat(3, 22vw);
+    grid-template-rows: repeat(3, 22vw);
+  };
+}
+
+.puzzle-piece {
+  width: 5vw;
+  height: 5vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #007bff;
+  cursor: pointer;
+  background-size: contain;
+
+  @include mobile {
+    width: 22vw;
+    height: 22vw;
+  }
+}
+
+.empty {
+  background-color: transparent;
+}
+
+.puzzle-result-game {
+  text-align: center;
+  width: 40%;
+  font-size: 1.5vw;
+
+  @include mobile {
+    margin-top: 3.3vw;
+    width: 60%;
+    font-size: 4vw;
+  }
+}
+

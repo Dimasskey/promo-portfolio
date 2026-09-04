@@ -1,0 +1,146 @@
+.tic-tac-game-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.tic-tac-game-container {
+  position: relative;
+  background-color: var(--background-color);
+  width: 35vw;
+  height: 25vw;
+  border-radius: 1vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 1vw;
+  transition: height 1s ease;
+
+  @include mobile {
+    width: 90vw;
+    height: 100vw;
+    border-radius: 4vw;
+  }
+}
+
+.tic-tac-game-heading {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-top: 1vw;
+
+  @include mobile {
+    padding-top: 3vw;
+  }
+
+  &-text {
+    font-size: 2vw;
+    font-family: "Akshar", sans-serif;
+    font-weight: 600;
+
+    @include mobile {
+      font-size: 7vw;
+    }
+  }
+
+  &-cross {
+    width: 2vw;
+    height: 2vw;
+    position: absolute;
+    cursor: pointer;
+    right: -8vw;
+
+    @include mobile {
+      width: 5vw;
+      height: 5vw;
+      right: -12vw;
+    }
+  }
+}
+
+.tic-tac-game {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.tic-tac-board {
+  width: 18vw;
+  height: 18vw;
+  border-radius: 2vw;
+  background-color: #1A0543;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @include mobile {
+    width: 75vw;
+    height: 75vw;
+    border-radius: 4vw;
+  }
+
+  .tic-tac-cell {
+    width: 5.5vw;
+    height: 5.5vw;
+    background-color: #fff;
+    border-radius: 1.25vw;
+    border: 0.01vw solid #1A0543;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @include mobile {
+      width: 22.5vw;
+      height: 22.5vw;
+      border-radius: 4.75vw;
+    }
+  }
+}
+
+.tic-tac-restart-button {
+  display: flex;
+  position: absolute;
+  width: 4vw;
+  height: 4vw;
+  background-color: #1A0543;
+  right: 4vw;
+  top: 12vw;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1vw;
+
+  @include mobile {
+    width: 14vw;
+    height: 14vw;
+    right: 7.5vw;
+    top: 91.5vw;
+    border-radius: 4vw;
+  }
+
+  &__icon {
+    width: 3vw;
+
+    @include mobile {
+      width: 10vw;
+    }
+  }
+}
+
+.tic-tac-result-game {
+  text-align: center;
+  width: 40%;
+  font-size: 2vw;
+
+  @include mobile {
+    margin-top: 1vw;
+    width: 50%;
+    font-size: 4vw;
+  }
+}

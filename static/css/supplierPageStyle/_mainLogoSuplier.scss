@@ -1,0 +1,52 @@
+.supplier-main-logo {
+  grid-area: mainLogo;
+  display: flex;
+  background-color: var(--background-color-el);
+  border-radius: 1.5vw;
+  height: 10vw;
+  flex-direction: row;
+  align-items: center;
+  column-gap: 5vw;
+  padding: 1%;
+  justify-content: center;
+
+  @include mobile {
+    height: 17vw;
+  }
+
+  &__heading {
+    font-family: "Bebas Neue", sans-serif;
+    line-height: 1;
+    display: flex;
+    flex-direction: column;
+
+    @include mobile {
+      font-size: 9vw;
+    }
+  }
+
+  &__text1 {
+    font-size: 4vw;
+
+    @include mobile {
+      font-size: 7vw;
+    }
+  }
+
+  &__text2 {
+    font-size: 5vw;
+
+    @include mobile {
+      font-size: 8.5vw;
+    }
+  }
+
+  &__image {
+    width: 22vw;
+    object-fit: contain;
+
+    @include mobile {
+      width: 35vw;
+    }
+  }
+}

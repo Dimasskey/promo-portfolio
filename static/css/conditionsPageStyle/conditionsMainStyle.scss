@@ -1,0 +1,67 @@
+@import "../utils/zero",
+        "../utils/variables",
+        "../utils/media",
+        "../utils/fonts";
+
+@import "../header",
+        "../mainPageStyle/mainLogo",
+        "../footer";
+
+@import "../shared/soundSwitch",
+        "../shared/onload";
+
+body {
+  background-color: var(--background-color);
+  font-family: "Inter", sans-serif;
+  color: #fff;
+}
+
+.conditions-page-wrapper {
+  display: grid;
+  grid-template-columns: 1fr calc(100dvw/1.55) 1fr;
+  grid-template-rows: auto auto auto 1fr;
+  grid-template-areas:
+    ". header ."
+    ". mainLogo ."
+    ". conditions ."
+    "footer footer footer";
+  row-gap: 1.5vw;
+
+  @include mobile {
+    justify-content: center;
+    grid-template-columns: 95vw;
+    grid-template-areas:
+    "header"
+    "mainLogo"
+    "conditions";
+    row-gap: 2vw;
+  }
+}
+
+.conditions-text-container {
+  grid-area: conditions;
+  background-color: var(--background-color-el);
+  border-radius: 1vw;
+  padding: 1vw;
+  word-break: break-word;
+
+
+  @include mobile {
+    padding: 4vw;
+    line-height: 1.25;
+
+    & > p {
+      margin-bottom: 5vw;
+    }
+
+    & > h2{
+      font-size: 5vw;
+      margin-bottom: 1.5vw;
+      line-height: 1.1;
+    }
+
+    & > ol, ul{
+      margin-bottom: 5vw;
+    }
+  }
+}

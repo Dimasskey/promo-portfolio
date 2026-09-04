@@ -1,0 +1,55 @@
+@import "../utils/zero",
+        "../utils/media",
+        "../utils/variables",
+        "../utils/fonts";
+
+@import "../header",
+        "guide",
+        "mainPrizes",
+        "weekPrizes",
+        "hillPrize",
+        "prizesInAll",
+        "firstFinalists",
+        "fromSuppliers",
+        "../footer";
+
+@import   "../shared/soundSwitch",
+          "../shared/onload";
+
+body {
+  background-color: var(--background-color);
+  font-family: "Bebas Neue", sans-serif;
+  color: #fff;
+}
+
+.main-prizes-wrapper {
+  display: grid;
+  grid-template-columns: 1fr calc(100dvw/1.55) 1fr;
+  grid-template-rows: auto auto auto auto auto auto auto 1fr;
+  grid-template-areas:
+    ". header ."
+    ". guide ."
+    ". mainPrizes ."
+    ". weekPrizes ."
+    ". hillPrize ."
+    ". prizesInAll ."
+    ". firstFinalists ."
+    ". prizesFromPartners ."
+    "footer footer footer";
+  row-gap: 1.5vw;
+
+  @include mobile {
+    justify-content: center;
+    grid-template-columns: 95vw;
+    grid-template-areas:
+    "header"
+    "guide"
+    "mainPrizes"
+    "weekPrizes"
+    "hillPrize"
+    "prizesInAll"
+    "firstFinalists"
+    "prizesFromPartners";
+    row-gap: 2vw;
+  }
+}

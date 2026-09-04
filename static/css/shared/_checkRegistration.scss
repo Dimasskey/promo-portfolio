@@ -1,0 +1,154 @@
+.registration-check-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.registration-check-container {
+  background-color: var(--background-color);
+  width: 30vw;
+  height: 12vw;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-items: center;
+  border-radius: 1.5vw;
+  row-gap: 1vw;
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  padding: 1vw 0 0 0;
+
+  @include mobile {
+    width: 76vw;
+    height: 38vw;
+    border-radius: 4.5vw;
+    row-gap: 4vw;
+  }
+
+  .registration-check-head {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2vw;
+
+    @include mobile {
+      font-size: 7vw;
+    }
+
+    .registration-check-head-cross {
+      width: 1.5vw;
+      position: absolute;
+      right: 1vw;
+      top: 0;
+      cursor: pointer;
+
+      @include mobile {
+        width: 4.5vw;
+        right: 2vw;
+        top: 1vw;
+      }
+    }
+  }
+
+  .registration-check-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1vw;
+
+    @include mobile {
+      row-gap: 3vw;
+    }
+
+    .registration-check-input-container {
+      display: flex;
+      align-items: center;
+      width: 100%;
+
+      .registration-check-input-label {
+        font-size: 1.5vw;
+        margin-right: 1vw;
+        margin-left: 1vw;
+
+        @include mobile {
+          font-size: 4.5vw;
+          margin-right: 2vw;
+          margin-left: 2vw;
+        }
+      }
+
+      .registration-check-input {
+        height: 2.5vw;
+        border-radius: 2vw;
+        padding-left: 1vw;
+        color: black;
+        width: 21.7vw;
+        font-size: 1vw;
+
+        @include mobile {
+          height: 8.5vw;
+          border-radius: 5vw;
+          padding-left: 2vw;
+          width: 53.5vw;
+          font-size: 3vw;
+        }
+      }
+    }
+
+    .registration-check-button-container {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+
+      .registration-check-response {
+        display: flex;
+        align-items: center;
+        color: red;
+        margin-left: 1vw;
+        font-size: 1vw;
+        width: 54%;
+
+        @include mobile {
+          font-size: 2.6vw;
+          margin-left: 3vw;
+          width: 56%;
+        }
+      }
+
+      .registration-check-button {
+        height: 2vw;
+        width: 9vw;
+        border-radius: 2vw;
+        background-color: #FF4A15;
+        margin-right: 1.1vw;
+        font-size: 1.1vw;
+        cursor: pointer;
+        position: relative;
+
+        &:hover {
+          background-color: #932d16;
+        }
+
+        &:active {
+          top: 0.1vw;
+        }
+
+        @include mobile {
+          height: 6vw;
+          width: 23vw;
+          border-radius: 4vw;
+          margin-right: 3.5vw;
+          font-size: 3.1vw;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <title>Добавления чека</title>
+    </head>
+    <style>
+        .block {
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+            margin: 10% auto;
+            padding: 5%;
+            box-shadow: 0 0 10px;
+            border-radius: 9px;
+        }
+        label {
+            display: flex;
+            flex-direction: column;
+            padding: 1%;
+        }
+        input {
+            border: 1px solid #00000045;
+            border-radius: 6px;
+            padding: 1%;
+        }
+        button {
+            box-shadow: 0 0 11px 0 #00000059;
+            margin: 1%;
+            padding: 1%;
+            background: #33ff2a;
+            border: 1px solid #c0c0c094;
+            border-radius: 6px;
+            font-size: 1.2rem;
+        }
+        .error_block {
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+            top: 0;
+            backdrop-filter: blur(2px);
+            left: 0;
+        }
+        .error_block  > div {
+            width: 30%;
+            margin: 20% auto;
+            background: #fff;
+            padding: 2%;
+            box-shadow: 0 0 10px;
+            border-radius: 6px;
+        }
+    </style>
+    <body>
+        <div class="error_block" id="error_block" style="display: none" onclick="document.getElementById('error_block').style.display = 'none';">
+            <div>
+                <h3 id="error_header"></h3>
+                <p id="error_message"></p>
+            </div>
+        </div>
+        <div class="block">
+            <label>Order ID: <input type="number" id="order_id" name="order_id"></label>
+            <label>Sum Check: <input type="number" id="sum_check" name="sum_check"></label>
+            <label>Phone: <input type="tel" class="tel" id="phone" name="phone"></label>
+            <button onclick="add_user();">Send</button>
+        </div>
+    </body>
+    <script>
+        [].forEach.call( document.querySelectorAll('.tel'), function(input) {
+            var keyCode;
+            function mask(event) {
+                event.keyCode && (keyCode = event.keyCode);
+                var pos = this.selectionStart;
+                if (pos < 3) event.preventDefault();
+                var matrix = "+7 (___) ___ ____",
+                    i = 0,
+                    def = matrix.replace(/\D/g, ""),
+                    val = this.value.replace(/\D/g, ""),
+                    new_value = matrix.replace(/[_\d]/g, function(a) {
+                        return i < val.length ? val.charAt(i++) || def.charAt(i) : a
+                    });
+                i = new_value.indexOf("_");
+                if (i != -1) {
+                    i < 5 && (i = 3);
+                    new_value = new_value.slice(0, i)
+                }
+                var reg = matrix.substr(0, this.value.length).replace(/_+/g,
+                    function(a) {
+                        return "\\d{1," + a.length + "}"
+                    }).replace(/[+()]/g, "\\$&");
+                reg = new RegExp("^" + reg + "$");
+                if (!reg.test(this.value) || this.value.length < 5 || keyCode > 47 && keyCode < 58) this.value = new_value;
+                if (event.type == "blur" && this.value.length < 5)  this.value = ""
+            }
+
+            input.addEventListener("input", mask, false);
+            input.addEventListener("focus", mask, false);
+            input.addEventListener("blur", mask, false);
+            input.addEventListener("keydown", mask, false)
+
+        });
+
+        function show_warning(header, message) {
+            let error_block = document.getElementById('error_block'),
+                error_message = document.getElementById('error_message'),
+                error_header = document.getElementById('error_header');
+            error_block.style.display = 'block';
+            error_message.innerText = message;
+            error_header.innerText = header;
+        }
+
+        async function add_user() {
+            let order_id = document.getElementById('order_id'),
+                sum_check = document.getElementById('sum_check'),
+                phone = document.getElementById('phone');
+
+            const response = await fetch('/api/add_user', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    order_id: order_id.value,
+                    sum: sum_check.value,
+                    phone: phone.value
+                }),
+            });
+
+            const result = await response.json();
+            if (response.ok) {
+                console.log(result);
+                show_warning('Success', result.message);
+            } else {
+                show_warning('Error', result.message);
+                console.log(result);
+            }
+        }
+    </script>
+</html>

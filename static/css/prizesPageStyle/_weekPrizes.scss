@@ -1,0 +1,122 @@
+.week-prizes-container {
+  background-color: var(--background-color-alt);
+  border-radius: 1vw;
+  grid-area: weekPrizes;
+  height: 55vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @include mobile {
+    height: 69vw;
+  }
+}
+
+.week-prizes-heading-container {
+  display: flex;
+}
+
+.week-prizes-snake-icon {
+  width: 16vw;
+  object-fit: contain;
+
+  @include mobile {
+    width: 22vw;
+  }
+}
+.week-prizes-text-container {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3vw 4vw;
+  width: 67%;
+
+  @include mobile {
+    width: 73%;
+  }
+
+}
+
+.week-prizes-heading {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 4vw;
+
+  @include mobile {
+    font-size: 4.5vw;
+  }
+}
+
+.week-prizes-text {
+  font-size: 1.5vw;
+  padding: 0 2vw;
+  font-family: Inter, sans-serif;
+  line-height: 1.25;
+
+  @include mobile {
+    font-size: 2.5vw;
+    padding: 0 5vw;
+  }
+}
+
+
+.week-prizes-icon-container {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas:
+          "grill aerogrill biggrill"
+          "yandex robot biggrill"
+;
+  justify-items: center;
+  align-items: end;
+  margin-top: 1vw;
+  width: 96%
+}
+
+.week-icon-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  font-size: 1.2vw;
+
+  @include mobile {
+    font-size: 1.8vw;
+  }
+}
+
+.week-prize-text {
+  margin-top: 1.5vw;
+  padding: 0 4vw;
+  font-family: Inter, sans-serif;
+  line-height: 1.25;
+}
+
+
+.week-grill-prize-container { grid-area: grill; position: relative}
+.week-aerogrill-prize-container { grid-area: aerogrill; position: relative}
+.week-yandex-prize-container { grid-area: yandex; position: relative}
+.week-robot-prize-container { grid-area: robot; position: relative}
+.week-biggrill-prize-container { grid-area: biggrill; position: relative}
+
+.week-grill-prize-icon {height: 14vw; @include mobile {height: 18vw;}}
+.week-aerogrill-prize-icon {height: 14vw; @include mobile {height: 18vw;}}
+.week-yandex-prize-icon {height: 10vw; @include mobile {height: 13vw;}}
+.week-robot-prize-icon {height: 9vw; @include mobile {height: 13vw;}}
+.week-biggrill-prize-icon {height: 30vw; @include mobile {height: 39vw;}}
+
+.week-count {
+  position: absolute;
+  width: 4vw;
+
+  @include mobile {
+    width: 6vw;
+  }
+}
+
+.week-grill-count {top: -1vw; right: -2vw;}
+.week-aerogrill-count {top: -1.2vw; right: -1vw; @include mobile {right: -2vw}}
+.week-yandex-count {top: -1vw; right: 1vw; @include mobile {right: 4vw}}
+.week-robot-count {top: -3vw; right: 0}
+.week-biggrill-count {top: -2vw; right: 0}
