@@ -1,14 +1,11 @@
 {
-  "name": "anixNewYearJS",
+  "name": "promo-portfolio",
   "version": "1.0.0",
-  "description": "",
-  "dependencies": {
-    "express": "^4.20.0",
-    "node-fetch": "^3.3.2"
-  },
-  "main": "index.js",
+  "description": "Commercial promotional website",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node run.js"
   },
-  "private": true
+  "dependencies": {
+    "express": "^4.20.0"
+  }
 }

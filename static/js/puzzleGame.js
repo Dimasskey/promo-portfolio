@@ -22,24 +22,8 @@ document.querySelector('.puzzle-game-heading-cross').addEventListener('click', a
 });
 
 
-async function getGiftPuzzleGame() {
-    const response = await fetch(`${URL_API}/users_gifts`, {
-        method: 'PATCH',
-        headers: {
-            'Content-Type': 'application/json',
-            'token': GetCookie("token")
-        },
-        body: JSON.stringify({
-            "game_1": false,
-            "game_2": false,
-            "game_3": true,
-            "game_4": false,
-        })
-    });
-    const result = await response.json();
-    if (response.ok) {
-        console.log("успех")
-    }
+function getGiftPuzzleGame() {
+    completeMockGame("game_3");
 }
 
 pieces.forEach(piece => {
@@ -158,7 +142,6 @@ function checkGameCompletion() {
         },500)
         gameCompleted = true;
         getGiftPuzzleGame()
-        console.log("успех пазлы");
     }
 }
 

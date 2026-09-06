@@ -14,124 +14,81 @@ function getCodeFromQr () {
 getCodeFromQr()
 
 const checkRegistrationQr = async (qr, phoneNumber) => {
-    try {
-        const response = await fetch(`${URL_API}/add_code_web`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                checks: [
-                    {
-                        code: `${qr}`,
-                        scode: null,
-                        sname: null,
-                        phone: `${phoneNumber}`
-                    }
-                ],
-                sender_type: "web"
-            }),
-        });
-
-        const result = await response.json();
-        if (response.ok) {
-            showWarning(result.message);
-            // window.location.href = "/"
-            console.log("успех")
-        } else {
-            showWarning(result.message);
-        }
-    } catch (error) {
-        console.error("Ошибка:", error);
+    if (!qr) {
+        return;
     }
+
+    const user = getMockUser();
+
+    if (!user) {
+        return;
+    }
+
+    addMockReceipt({
+        code: qr,
+        phone: phoneNumber,
+        registeredAt: new Date().toISOString()
+    });
+
+    showWarning("Чек успешно зарегистрирован");
 };
 
-async function getCurrentUserQR () {
-    let cookie = GetCookie("token");
-    try {
-        const response = await fetch(`${URL_API}/users/me`, {
-            method: 'GET',
-            headers: {
-                'accept': 'application/json',
-                'token': cookie,
-            },
-        });
-        if (response.ok) {
-            let user = await response.json();
-            user = user.data
-            console.log(user)
-            if (qr !== null) {
-                await checkRegistrationQr(qr, user.phone_number)
-                console.log("qr есть")
-            } else {
-                // window.location.href = "/"
-                console.log("qr нет")
-            }
-        }
-    } catch (error) {
-        console.error("Произошла ошибка:", error);
+
+async function getCurrentUserQR() {
+    const user = getMockUser();
+
+    if (!user) {
+        return;
+    }
+
+    if (qr !== null) {
+        await checkRegistrationQr(qr, user.phone_number);
     }
 }
+
 
 async function handleRegistration(event) {
     event.preventDefault();
 
-    const fio = document.getElementById('fio').value;
-    const number = document.getElementById('regNumber').value;
+    const fio = document.getElementById('fio').value.trim();
+    const number = document.getElementById('regNumber').value.trim();
 
-    try {
-        const response = await fetch(`${URL_API}/signup`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                fio: fio,
-                phone_number: number
-            }),
-        });
-        const result = await response.json();
-        if (response.ok) {
-            document.cookie = `token=${result.data.token}; max-age=7257600;`;
-            if (qr !== null) {
-                await checkRegistrationQr(qr, number)
-            } else {
-                window.location.href = "/";
-            }
-        } else {
-            document.querySelector('.registration-response').textContent = result.message;
-        }
-    } catch (error) {
-        console.error("erere", error);
+    if (!fio || !number) {
+        document.querySelector('.registration-response').textContent =
+            "Заполните все поля";
+
+        return;
     }
+
+    registerMockUser(fio, number);
+
+    if (qr !== null) {
+        await checkRegistrationQr(qr, number);
+    }
+
+    window.location.href = "/";
 }
+
 
 async function handleLogin(event) {
     event.preventDefault();
 
-    const number = document.getElementById('logNumber').value;
+    const number = document.getElementById('logNumber').value.trim();
 
-    const response = await fetch(`${URL_API}/login`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-            phone_number: number
-        }),
-    });
+    if (!number) {
+        document.querySelector('.login-response').textContent =
+            "Введите номер телефона";
 
-    const result = await response.json();
-    if (response.ok) {
-        document.cookie = `token=${result.data.token}; max-age=7257600;`;
-        if (qr !== null) {
-            await checkRegistrationQr(qr, number)
-        } else {
-            window.location.href = "/";
-        }
-    } else {
-        document.querySelector('.login-response').textContent = result.message;
+        return;
     }
+
+    loginMockUser(number);
+
+    if (qr !== null) {
+        await checkRegistrationQr(qr, number);
+    }
+
+    window.location.href = "/";
 }
 
 function showWarning (text) {

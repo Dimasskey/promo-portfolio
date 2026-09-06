@@ -19,47 +19,65 @@ document.addEventListener('DOMContentLoaded', () => {
 const handleRegCheck = async (event) => {
     event.preventDefault();
 
-    try {
-        const user = await getCurrentUser ();
-        const userPhone = user.phone_number;
+    const checkNumber = document
+        .getElementById('numberCheck')
+        .value
+        .trim();
 
-        if (!userPhone) {
-            console.error("Номер телефона не найден");
+    const responseElement = document.querySelector(
+        '.registration-check-response'
+    );
+
+    if (!checkNumber) {
+        responseElement.textContent = 'Введите номер чека';
+        return;
+    }
+
+    const user = await getCurrentUser();
+
+    if (!user) {
+        return;
+    }
+
+    const receiptsCount = user.receipts.length;
+
+    let stepsToAdd;
+    let message;
+
+    if (receiptsCount === 0) {
+        stepsToAdd = 40;
+        message =
+            'Чек успешно зарегистрирован! Первый этап полностью открыт.';
+    } else if (receiptsCount === 1) {
+        if (!areAllMockGamesCompleted()) {
+            responseElement.textContent =
+                'Сначала пройдите все игры первого этапа.';
             return;
         }
 
-        const checkNumber = document.getElementById('numberCheck').value;
-        console.log(userPhone);
-
-        const response = await fetch(`${URL_API}/add_code_web`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                checks: [
-                    {
-                        code: `${checkNumber}`,
-                        scode: null,
-                        sname: null,
-                        phone: `${userPhone}`
-                    }
-                ],
-                sender_type: "web"
-            }),
-        });
-
-        const result = await response.json();
-        if (response.ok) {
-            document.querySelector('.registration-check-response').textContent = result.message;
-            document.querySelector('.registration-check-response').style.color = "#95ff00";
-            setTimeout(() => {
-                window.location.reload();
-            }, 1500)
-        } else {
-            document.querySelector('.registration-check-response').textContent = result.message;
-        }
-    } catch (error) {
-        console.error("Ошибка:", error);
+        stepsToAdd = 20;
+        message =
+            'Чек успешно зарегистрирован! Второй этап полностью открыт.';
+    } else {
+        responseElement.textContent =
+            'В демо-версии уже зарегистрированы все необходимые чеки.';
+        return;
     }
+
+    user.receipts.push({
+        code: checkNumber,
+        registeredAt: new Date().toISOString(),
+        steps: stepsToAdd
+    });
+
+    user.count_steps += stepsToAdd;
+
+    saveMockUser(user);
+
+    responseElement.textContent = message;
+
+    setTimeout(() => {
+        window.location.reload();
+    }, 1500);
 };
+

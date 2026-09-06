@@ -27,24 +27,30 @@ document.querySelector('.tic-tac-game-heading-cross').addEventListener('click', 
 
 resetBut.addEventListener('click', resetGame);
 
-async function getGiftTicTacGame() {
-    const response = await fetch(`${URL_API}/users_gifts`, {
-        method: 'PATCH',
-        headers: {
-            'Content-Type': 'application/json',
-            'token': GetCookie("token")
-        },
-        body: JSON.stringify({
-            "game_1": false,
-            "game_2": true,
-            "game_3": false,
-            "game_4": false,
-        })
-    });
-    const result = await response.json();
-    if (response.ok) {
-        console.log("Успех")
-    }
+// async function getGiftTicTacGame() {
+//     const response = await fetch(`${URL_API}/users_gifts`, {
+//         method: 'PATCH',
+//         headers: {
+//             'Content-Type': 'application/json',
+//             'token': GetCookie("token")
+//         },
+//         body: JSON.stringify({
+//             "game_1": false,
+//             "game_2": true,
+//             "game_3": false,
+//             "game_4": false,
+//         })
+//     });
+//     const result = await response.json();
+//     if (response.ok) {
+//         console.log("Успех")
+//     }
+// }
+
+function getGiftTicTacGame() {
+    completeMockGame("game_2");
+
+    console.log("Игра 2 завершена");
 }
 
 function checkWin() {

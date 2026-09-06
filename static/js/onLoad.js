@@ -35,21 +35,23 @@ const updateTree = (toyRedCount) => {
 }
 
 const updateBalls = (user) => {
-    let countSteps = user.count_steps;
+    const countSteps = user.count_steps;
     const countGameSuccess = getCountGameSuccess(user);
-    let toyRedCount = parseInt(document.getElementById('toy-red-count').textContent);
 
-    if (countSteps > 39 && countGameSuccess === 4) {
+    let toyRedCount = parseInt(
+        document.getElementById('toy-red-count').textContent
+    );
+
+    if (countSteps >= 40 && countGameSuccess === 4) {
         document.querySelector("#toy-red-count").innerHTML = "2 шт";
         toyRedCount = 2;
-
-    } else if (countGameSuccess < 4 && countSteps > 39) {
+    } else if (countSteps >= 40) {
         document.querySelector("#toy-red-count").innerHTML = "1 шт";
         toyRedCount = 1;
     }
 
-    updateTree(toyRedCount)
-}
+    updateTree(toyRedCount);
+};
 
 const updateGameButtons = (user) => {
     const games = user.games
@@ -86,8 +88,6 @@ const updateGameButtons = (user) => {
                 buttons[buttonKey].style.backgroundImage = 'none';
                 buttons[buttonKey].style.backgroundColor = "orange";
                 countGameSuccess += 1;
-            } else {
-
             }
         }
     });
@@ -199,16 +199,15 @@ function show_steps(user) {
 const suppliers = document.querySelectorAll('.suppliers__image');
 suppliers.forEach(supplier => {
     supplier.addEventListener('click', function() {
-        const supplierId = this.getAttribute('supplier-id');
-        window.location.href = `/suppliers/?id=${supplierId}`;
+        window.location.href = `/suppliers/`;
     });
 });
 
 const relocateStageTwo = (user) => {
-    if (getCountGameSuccess(user) === 4) {
-        window.location.href = "/stage_two"
+    if (user.count_steps >= 40 && getCountGameSuccess(user) === 4) {
+        window.location.href = "/stage_two";
     }
-}
+};
 
 window.addEventListener('DOMContentLoaded',   async () => {
     const user = await getCurrentUser ();
